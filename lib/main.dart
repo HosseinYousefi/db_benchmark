@@ -218,14 +218,14 @@ class BenchmarkResult extends StatelessWidget {
           x: x++,
           barRods: [
             BarChartRodData(
-              y: max(result.intTime.toDouble(), 1),
-              colors: [leftBarColor],
+              toY: max(result.intTime.toDouble(), 1),
+              color: leftBarColor,
               width: width,
               borderRadius: BorderRadius.circular(6),
             ),
             BarChartRodData(
-              y: max(result.stringTime.toDouble(), 1),
-              colors: [rightBarColor],
+              toY: max(result.stringTime.toDouble(), 1),
+              color: rightBarColor,
               width: width,
               borderRadius: BorderRadius.circular(6),
             ),
@@ -297,33 +297,38 @@ class BenchmarkResult extends StatelessWidget {
           alignment: BarChartAlignment.spaceAround,
           titlesData: FlTitlesData(
             show: true,
-            bottomTitles: SideTitles(
-              showTitles: true,
-              getTextStyles: (_) => TextStyle(
-                color: const Color(0xff7589a2),
-                fontWeight: FontWeight.bold,
-                fontSize: 14,
+            bottomTitles: AxisTitles(
+              sideTitles: SideTitles(
+                getTitlesWidget: (value, meta) {
+                  return Text(
+                    labels[value.toInt()],
+                    style: TextStyle(
+                      color: const Color(0xff7589a2),
+                      fontWeight: FontWeight.bold,
+                      fontSize: 14,
+                    ),
+                  );
+                },
+                showTitles: true,
               ),
-              margin: 20,
-              getTitles: (double value) {
-                return labels[value.toInt()];
-              },
             ),
-            leftTitles: SideTitles(
-              showTitles: true,
-              getTextStyles: (_) => TextStyle(
-                color: const Color(0xff7589a2),
-                fontWeight: FontWeight.bold,
-                fontSize: 14,
+            leftTitles: AxisTitles(
+              sideTitles: SideTitles(
+                getTitlesWidget: (value, meta) {
+                  return Text(
+                    (value % (maxResultTime ~/ 4) == 0)
+                        ? value.toInt().toString() + 'ms'
+                        : '',
+                    style: TextStyle(
+                      color: const Color(0xff7589a2),
+                      fontWeight: FontWeight.bold,
+                      fontSize: 14,
+                    ),
+                  );
+                },
+                showTitles: true,
+                reservedSize: 50,
               ),
-              margin: 32,
-              reservedSize: 50,
-              getTitles: (value) {
-                if (value % (maxResultTime ~/ 4) == 0) {
-                  return value.toInt().toString() + 'ms';
-                }
-                return '';
-              },
             ),
           ),
           borderData: FlBorderData(

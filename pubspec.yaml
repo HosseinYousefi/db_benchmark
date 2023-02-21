@@ -9,17 +9,17 @@ dependencies:
   flutter:
     sdk: flutter
 
-  path_provider: ^2.0.2
-  path: ^1.8.0
+  path_provider: ^2.0.12
+  path: ^1.8.3
   random_string: ^2.2.0-nullsafety
-  hive: ^2.0.4
-  sqflite: ^2.0.0+3
-  shared_preferences: ^2.0.6
-  fl_chart: ^0.36.2
-  sqlite3: ^1.1.2
-  sqlite3_flutter_libs: ^0.5.0
-  sembast: ^3.1.0+2
-  logging: ^1.0.1
+  hive: ^2.2.3
+  sqflite: ^2.2.4+1
+  shared_preferences: ^2.0.17
+  fl_chart: ^0.61.0
+  sqlite3: ^1.9.1
+  sqlite3_flutter_libs: ^0.5.12
+  sembast: ^3.4.0+6
+  logging: ^1.1.1
 
 flutter:
   uses-material-design: true
