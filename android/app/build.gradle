@@ -48,6 +48,12 @@ android {
             signingConfig signingConfigs.debug
         }
     }
+
+    externalNativeBuild {
+        cmake {
+            path "../../src/shared_preferences_jnigen/CMakeLists.txt"
+        }
+	}
 }
 
 flutter {

@@ -1,0 +1,7 @@
+Executable : /Users/yousefi/Library/Android/sdk/cmake/3.18.1/bin/ninja
+arguments : 
+-C
+/Users/yousefi/Developer/db_benchmark/android/app/.cxx/Debug/x255u1b5/armeabi-v7a
+shared_preferences_jnigen
+jvmArgs : 
+

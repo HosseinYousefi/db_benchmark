@@ -40,7 +40,7 @@ class _AppState extends State<App> with SingleTickerProviderStateMixin {
               children: <Widget>[
                 Center(
                   child: Text(
-                    "Hive Benchmark",
+                    "Benchmark",
                     style: TextStyle(fontSize: 40),
                   ),
                 ),

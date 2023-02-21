@@ -9,6 +9,8 @@ import 'package:hive_benchmark/runners/sqflite.dart';
 import 'package:logging/logging.dart';
 import 'package:random_string/random_string.dart' as randStr;
 
+import 'runners/shared_preferences_jnigen.dart';
+
 const String TABLE_NAME_STR = "kv_str";
 const String TABLE_NAME_INT = "kv_int";
 
@@ -21,12 +23,13 @@ class Result {
 }
 
 final runners = [
-  HiveRunner(false),
-  HiveRunner(true),
-  SqfliteRunner(),
+  // HiveRunner(false),
+  // HiveRunner(true),
+  // SqfliteRunner(),
   SharedPreferencesRunner(),
-  SqlFfiRunner(),
-  SembasRunner(),
+  SharedPreferencesJnigenRunner(),
+  // SqlFfiRunner(),
+  // SembasRunner(),
 ];
 
 List<Result> _createResults() {

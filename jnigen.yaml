@@ -1,0 +1,18 @@
+android_sdk_config:
+  add_gradle_deps: true
+
+summarizer:
+  backend: asm
+
+output:
+  c:
+    library_name: shared_preferences_jnigen
+    path: src/shared_preferences_jnigen/
+  dart:
+    path: lib/shared_preferences_jnigen.dart
+    structure: single_file
+
+classes:
+  - 'android.content.Context'
+  - 'android.content.SharedPreferences'
+  - 'android.content.SharedPreferences$Editor'

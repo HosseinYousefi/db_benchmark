@@ -1,0 +1,7 @@
+[
+{
+  "directory": "/Users/yousefi/Developer/db_benchmark/android/app/.cxx/Debug/x255u1b5/arm64-v8a",
+  "command": "/Users/yousefi/Library/Android/sdk/ndk/21.4.7075529/toolchains/llvm/prebuilt/darwin-x86_64/bin/clang --target=aarch64-none-linux-android21 --gcc-toolchain=/Users/yousefi/Library/Android/sdk/ndk/21.4.7075529/toolchains/llvm/prebuilt/darwin-x86_64 --sysroot=/Users/yousefi/Library/Android/sdk/ndk/21.4.7075529/toolchains/llvm/prebuilt/darwin-x86_64/sysroot -DDART_SHARED_LIB -Dshared_preferences_jnigen_EXPORTS -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE=2 -Wformat -Werror=format-security  -O0 -fno-limit-debug-info  -fPIC -o CMakeFiles/shared_preferences_jnigen.dir/shared_preferences_jnigen.c.o -c /Users/yousefi/Developer/db_benchmark/src/shared_preferences_jnigen/shared_preferences_jnigen.c",
+  "file": "/Users/yousefi/Developer/db_benchmark/src/shared_preferences_jnigen/shared_preferences_jnigen.c"
+}
+]

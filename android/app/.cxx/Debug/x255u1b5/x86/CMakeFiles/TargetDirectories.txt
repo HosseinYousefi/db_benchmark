@@ -1,0 +1,3 @@
+/Users/yousefi/Developer/db_benchmark/android/app/.cxx/Debug/x255u1b5/x86/CMakeFiles/rebuild_cache.dir
+/Users/yousefi/Developer/db_benchmark/android/app/.cxx/Debug/x255u1b5/x86/CMakeFiles/edit_cache.dir
+/Users/yousefi/Developer/db_benchmark/android/app/.cxx/Debug/x255u1b5/x86/CMakeFiles/shared_preferences_jnigen.dir
