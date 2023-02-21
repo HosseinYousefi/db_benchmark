@@ -83,7 +83,18 @@ class BenchmarkWidget extends StatefulWidget {
 }
 
 class _BenchmarkWidgetState extends State<BenchmarkWidget> {
-  static const entrySteps = [10, 20, 50, 100, 200, 500, 1000];
+  static const entrySteps = [
+    10,
+    20,
+    50,
+    100,
+    200,
+    500,
+    1000,
+    2500,
+    5000,
+    10000
+  ];
 
   var entryValue = 0.0;
   int get entries => entrySteps[entryValue.round()];

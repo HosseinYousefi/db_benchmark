@@ -22,6 +22,1538 @@ import "package:jni/jni.dart" as jni;
 final ffi.Pointer<T> Function<T extends ffi.NativeType>(String sym) jniLookup =
     ProtectedJniExtensions.initGeneratedLibrary("shared_preferences_jnigen");
 
+/// from: java.util.Map
+class Map<K extends jni.JObject, V extends jni.JObject> extends jni.JObject {
+  late final jni.JObjType? _$type;
+  @override
+  jni.JObjType get $type => _$type ??= type(
+        $K,
+        $V,
+      );
+
+  final jni.JObjType<K> $K;
+  final jni.JObjType<V> $V;
+
+  Map.fromRef(
+    this.$K,
+    this.$V,
+    jni.JObjectPtr ref,
+  ) : super.fromRef(ref);
+
+  /// The type which includes information such as the signature of this class.
+  static $MapType<K, V> type<K extends jni.JObject, V extends jni.JObject>(
+    jni.JObjType<K> $K,
+    jni.JObjType<V> $V,
+  ) {
+    return $MapType(
+      $K,
+      $V,
+    );
+  }
+
+  static final _size = jniLookup<
+          ffi.NativeFunction<
+              jni.JniResult Function(ffi.Pointer<ffi.Void>)>>("Map__size")
+      .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
+
+  /// from: public abstract int size()
+  int size() => _size(reference).integer;
+
+  static final _isEmpty = jniLookup<
+          ffi.NativeFunction<
+              jni.JniResult Function(ffi.Pointer<ffi.Void>)>>("Map__isEmpty")
+      .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
+
+  /// from: public abstract boolean isEmpty()
+  bool isEmpty() => _isEmpty(reference).boolean;
+
+  static final _containsKey = jniLookup<
+          ffi.NativeFunction<
+              jni.JniResult Function(ffi.Pointer<ffi.Void>,
+                  ffi.Pointer<ffi.Void>)>>("Map__containsKey")
+      .asFunction<
+          jni.JniResult Function(
+              ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>();
+
+  /// from: public abstract boolean containsKey(java.lang.Object object)
+  bool containsKey(jni.JObject object) =>
+      _containsKey(reference, object.reference).boolean;
+
+  static final _containsValue = jniLookup<
+          ffi.NativeFunction<
+              jni.JniResult Function(ffi.Pointer<ffi.Void>,
+                  ffi.Pointer<ffi.Void>)>>("Map__containsValue")
+      .asFunction<
+          jni.JniResult Function(
+              ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>();
+
+  /// from: public abstract boolean containsValue(java.lang.Object object)
+  bool containsValue(jni.JObject object) =>
+      _containsValue(reference, object.reference).boolean;
+
+  static final _get0 = jniLookup<
+          ffi.NativeFunction<
+              jni.JniResult Function(
+                  ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>>("Map__get0")
+      .asFunction<
+          jni.JniResult Function(
+              ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>();
+
+  /// from: public abstract V get(java.lang.Object object)
+  /// The returned object must be deleted after use, by calling the `delete` method.
+  V get0(jni.JObject object) =>
+      $V.fromRef(_get0(reference, object.reference).object);
+
+  static final _put = jniLookup<
+          ffi.NativeFunction<
+              jni.JniResult Function(ffi.Pointer<ffi.Void>,
+                  ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>>("Map__put")
+      .asFunction<
+          jni.JniResult Function(ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>,
+              ffi.Pointer<ffi.Void>)>();
+
+  /// from: public abstract V put(K object, V object1)
+  /// The returned object must be deleted after use, by calling the `delete` method.
+  V put(K object, V object1) =>
+      $V.fromRef(_put(reference, object.reference, object1.reference).object);
+
+  static final _remove = jniLookup<
+          ffi.NativeFunction<
+              jni.JniResult Function(
+                  ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>>("Map__remove")
+      .asFunction<
+          jni.JniResult Function(
+              ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>();
+
+  /// from: public abstract V remove(java.lang.Object object)
+  /// The returned object must be deleted after use, by calling the `delete` method.
+  V remove(jni.JObject object) =>
+      $V.fromRef(_remove(reference, object.reference).object);
+
+  static final _putAll = jniLookup<
+          ffi.NativeFunction<
+              jni.JniResult Function(
+                  ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>>("Map__putAll")
+      .asFunction<
+          jni.JniResult Function(
+              ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>();
+
+  /// from: public abstract void putAll(java.util.Map map)
+  void putAll(Map<K, V> map) => _putAll(reference, map.reference).check();
+
+  static final _clear = jniLookup<
+          ffi.NativeFunction<
+              jni.JniResult Function(ffi.Pointer<ffi.Void>)>>("Map__clear")
+      .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
+
+  /// from: public abstract void clear()
+  void clear() => _clear(reference).check();
+
+  static final _keySet = jniLookup<
+          ffi.NativeFunction<
+              jni.JniResult Function(ffi.Pointer<ffi.Void>)>>("Map__keySet")
+      .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
+
+  /// from: public abstract java.util.Set keySet()
+  /// The returned object must be deleted after use, by calling the `delete` method.
+  Set<K> keySet() => $SetType($K).fromRef(_keySet(reference).object);
+
+  static final _values = jniLookup<
+          ffi.NativeFunction<
+              jni.JniResult Function(ffi.Pointer<ffi.Void>)>>("Map__values")
+      .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
+
+  /// from: public abstract java.util.Collection values()
+  /// The returned object must be deleted after use, by calling the `delete` method.
+  jni.JObject values() =>
+      const jni.JObjectType().fromRef(_values(reference).object);
+
+  static final _entrySet = jniLookup<
+          ffi.NativeFunction<
+              jni.JniResult Function(ffi.Pointer<ffi.Void>)>>("Map__entrySet")
+      .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
+
+  /// from: public abstract java.util.Set entrySet()
+  /// The returned object must be deleted after use, by calling the `delete` method.
+  Set<jni.JObject> entrySet() =>
+      const $SetType(jni.JObjectType()).fromRef(_entrySet(reference).object);
+
+  static final _equals1 = jniLookup<
+          ffi.NativeFunction<
+              jni.JniResult Function(ffi.Pointer<ffi.Void>,
+                  ffi.Pointer<ffi.Void>)>>("Map__equals1")
+      .asFunction<
+          jni.JniResult Function(
+              ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>();
+
+  /// from: public abstract boolean equals(java.lang.Object object)
+  bool equals1(jni.JObject object) =>
+      _equals1(reference, object.reference).boolean;
+
+  static final _hashCode1 = jniLookup<
+          ffi.NativeFunction<
+              jni.JniResult Function(ffi.Pointer<ffi.Void>)>>("Map__hashCode1")
+      .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
+
+  /// from: public abstract int hashCode()
+  int hashCode1() => _hashCode1(reference).integer;
+
+  static final _getOrDefault = jniLookup<
+          ffi.NativeFunction<
+              jni.JniResult Function(
+                  ffi.Pointer<ffi.Void>,
+                  ffi.Pointer<ffi.Void>,
+                  ffi.Pointer<ffi.Void>)>>("Map__getOrDefault")
+      .asFunction<
+          jni.JniResult Function(ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>,
+              ffi.Pointer<ffi.Void>)>();
+
+  /// from: public V getOrDefault(java.lang.Object object, V object1)
+  /// The returned object must be deleted after use, by calling the `delete` method.
+  V getOrDefault(jni.JObject object, V object1) => $V.fromRef(
+      _getOrDefault(reference, object.reference, object1.reference).object);
+
+  static final _forEach = jniLookup<
+          ffi.NativeFunction<
+              jni.JniResult Function(ffi.Pointer<ffi.Void>,
+                  ffi.Pointer<ffi.Void>)>>("Map__forEach")
+      .asFunction<
+          jni.JniResult Function(
+              ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>();
+
+  /// from: public void forEach(java.util.function.BiConsumer biConsumer)
+  void forEach(jni.JObject biConsumer) =>
+      _forEach(reference, biConsumer.reference).check();
+
+  static final _replaceAll = jniLookup<
+          ffi.NativeFunction<
+              jni.JniResult Function(ffi.Pointer<ffi.Void>,
+                  ffi.Pointer<ffi.Void>)>>("Map__replaceAll")
+      .asFunction<
+          jni.JniResult Function(
+              ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>();
+
+  /// from: public void replaceAll(java.util.function.BiFunction biFunction)
+  void replaceAll(jni.JObject biFunction) =>
+      _replaceAll(reference, biFunction.reference).check();
+
+  static final _putIfAbsent = jniLookup<
+          ffi.NativeFunction<
+              jni.JniResult Function(
+                  ffi.Pointer<ffi.Void>,
+                  ffi.Pointer<ffi.Void>,
+                  ffi.Pointer<ffi.Void>)>>("Map__putIfAbsent")
+      .asFunction<
+          jni.JniResult Function(ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>,
+              ffi.Pointer<ffi.Void>)>();
+
+  /// from: public V putIfAbsent(K object, V object1)
+  /// The returned object must be deleted after use, by calling the `delete` method.
+  V putIfAbsent(K object, V object1) => $V.fromRef(
+      _putIfAbsent(reference, object.reference, object1.reference).object);
+
+  static final _remove1 = jniLookup<
+          ffi.NativeFunction<
+              jni.JniResult Function(
+                  ffi.Pointer<ffi.Void>,
+                  ffi.Pointer<ffi.Void>,
+                  ffi.Pointer<ffi.Void>)>>("Map__remove1")
+      .asFunction<
+          jni.JniResult Function(ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>,
+              ffi.Pointer<ffi.Void>)>();
+
+  /// from: public boolean remove(java.lang.Object object, java.lang.Object object1)
+  bool remove1(jni.JObject object, jni.JObject object1) =>
+      _remove1(reference, object.reference, object1.reference).boolean;
+
+  static final _replace = jniLookup<
+          ffi.NativeFunction<
+              jni.JniResult Function(
+                  ffi.Pointer<ffi.Void>,
+                  ffi.Pointer<ffi.Void>,
+                  ffi.Pointer<ffi.Void>,
+                  ffi.Pointer<ffi.Void>)>>("Map__replace")
+      .asFunction<
+          jni.JniResult Function(ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>,
+              ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>();
+
+  /// from: public boolean replace(K object, V object1, V object2)
+  bool replace(K object, V object1, V object2) => _replace(
+          reference, object.reference, object1.reference, object2.reference)
+      .boolean;
+
+  static final _replace1 = jniLookup<
+          ffi.NativeFunction<
+              jni.JniResult Function(
+                  ffi.Pointer<ffi.Void>,
+                  ffi.Pointer<ffi.Void>,
+                  ffi.Pointer<ffi.Void>)>>("Map__replace1")
+      .asFunction<
+          jni.JniResult Function(ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>,
+              ffi.Pointer<ffi.Void>)>();
+
+  /// from: public V replace(K object, V object1)
+  /// The returned object must be deleted after use, by calling the `delete` method.
+  V replace1(K object, V object1) => $V.fromRef(
+      _replace1(reference, object.reference, object1.reference).object);
+
+  static final _computeIfAbsent = jniLookup<
+          ffi.NativeFunction<
+              jni.JniResult Function(
+                  ffi.Pointer<ffi.Void>,
+                  ffi.Pointer<ffi.Void>,
+                  ffi.Pointer<ffi.Void>)>>("Map__computeIfAbsent")
+      .asFunction<
+          jni.JniResult Function(ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>,
+              ffi.Pointer<ffi.Void>)>();
+
+  /// from: public V computeIfAbsent(K object, java.util.function.Function function)
+  /// The returned object must be deleted after use, by calling the `delete` method.
+  V computeIfAbsent(K object, jni.JObject function) => $V.fromRef(
+      _computeIfAbsent(reference, object.reference, function.reference).object);
+
+  static final _computeIfPresent = jniLookup<
+          ffi.NativeFunction<
+              jni.JniResult Function(
+                  ffi.Pointer<ffi.Void>,
+                  ffi.Pointer<ffi.Void>,
+                  ffi.Pointer<ffi.Void>)>>("Map__computeIfPresent")
+      .asFunction<
+          jni.JniResult Function(ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>,
+              ffi.Pointer<ffi.Void>)>();
+
+  /// from: public V computeIfPresent(K object, java.util.function.BiFunction biFunction)
+  /// The returned object must be deleted after use, by calling the `delete` method.
+  V computeIfPresent(K object, jni.JObject biFunction) => $V.fromRef(
+      _computeIfPresent(reference, object.reference, biFunction.reference)
+          .object);
+
+  static final _compute = jniLookup<
+          ffi.NativeFunction<
+              jni.JniResult Function(
+                  ffi.Pointer<ffi.Void>,
+                  ffi.Pointer<ffi.Void>,
+                  ffi.Pointer<ffi.Void>)>>("Map__compute")
+      .asFunction<
+          jni.JniResult Function(ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>,
+              ffi.Pointer<ffi.Void>)>();
+
+  /// from: public V compute(K object, java.util.function.BiFunction biFunction)
+  /// The returned object must be deleted after use, by calling the `delete` method.
+  V compute(K object, jni.JObject biFunction) => $V.fromRef(
+      _compute(reference, object.reference, biFunction.reference).object);
+
+  static final _merge = jniLookup<
+          ffi.NativeFunction<
+              jni.JniResult Function(
+                  ffi.Pointer<ffi.Void>,
+                  ffi.Pointer<ffi.Void>,
+                  ffi.Pointer<ffi.Void>,
+                  ffi.Pointer<ffi.Void>)>>("Map__merge")
+      .asFunction<
+          jni.JniResult Function(ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>,
+              ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>();
+
+  /// from: public V merge(K object, V object1, java.util.function.BiFunction biFunction)
+  /// The returned object must be deleted after use, by calling the `delete` method.
+  V merge(K object, V object1, jni.JObject biFunction) => $V.fromRef(_merge(
+          reference, object.reference, object1.reference, biFunction.reference)
+      .object);
+
+  static final _of =
+      jniLookup<ffi.NativeFunction<jni.JniResult Function()>>("Map__of")
+          .asFunction<jni.JniResult Function()>();
+
+  /// from: static public java.util.Map of()
+  /// The returned object must be deleted after use, by calling the `delete` method.
+  static Map<K, V> of<K extends jni.JObject, V extends jni.JObject>(
+          jni.JObjType<K> $K, jni.JObjType<V> $V) =>
+      $MapType($K, $V).fromRef(_of().object);
+
+  static final _of1 = jniLookup<
+          ffi.NativeFunction<
+              jni.JniResult Function(
+                  ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>>("Map__of1")
+      .asFunction<
+          jni.JniResult Function(
+              ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>();
+
+  /// from: static public java.util.Map of(K object, V object1)
+  /// The returned object must be deleted after use, by calling the `delete` method.
+  static Map<K, V> of1<K extends jni.JObject, V extends jni.JObject>(
+          jni.JObjType<K> $K, jni.JObjType<V> $V, K object, V object1) =>
+      $MapType($K, $V)
+          .fromRef(_of1(object.reference, object1.reference).object);
+
+  static final _of2 = jniLookup<
+          ffi.NativeFunction<
+              jni.JniResult Function(
+                  ffi.Pointer<ffi.Void>,
+                  ffi.Pointer<ffi.Void>,
+                  ffi.Pointer<ffi.Void>,
+                  ffi.Pointer<ffi.Void>)>>("Map__of2")
+      .asFunction<
+          jni.JniResult Function(ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>,
+              ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>();
+
+  /// from: static public java.util.Map of(K object, V object1, K object2, V object3)
+  /// The returned object must be deleted after use, by calling the `delete` method.
+  static Map<K, V> of2<K extends jni.JObject, V extends jni.JObject>(
+          jni.JObjType<K> $K,
+          jni.JObjType<V> $V,
+          K object,
+          V object1,
+          K object2,
+          V object3) =>
+      $MapType($K, $V).fromRef(_of2(object.reference, object1.reference,
+              object2.reference, object3.reference)
+          .object);
+
+  static final _of3 = jniLookup<
+          ffi.NativeFunction<
+              jni.JniResult Function(
+                  ffi.Pointer<ffi.Void>,
+                  ffi.Pointer<ffi.Void>,
+                  ffi.Pointer<ffi.Void>,
+                  ffi.Pointer<ffi.Void>,
+                  ffi.Pointer<ffi.Void>,
+                  ffi.Pointer<ffi.Void>)>>("Map__of3")
+      .asFunction<
+          jni.JniResult Function(
+              ffi.Pointer<ffi.Void>,
+              ffi.Pointer<ffi.Void>,
+              ffi.Pointer<ffi.Void>,
+              ffi.Pointer<ffi.Void>,
+              ffi.Pointer<ffi.Void>,
+              ffi.Pointer<ffi.Void>)>();
+
+  /// from: static public java.util.Map of(K object, V object1, K object2, V object3, K object4, V object5)
+  /// The returned object must be deleted after use, by calling the `delete` method.
+  static Map<K, V> of3<K extends jni.JObject, V extends jni.JObject>(
+          jni.JObjType<K> $K,
+          jni.JObjType<V> $V,
+          K object,
+          V object1,
+          K object2,
+          V object3,
+          K object4,
+          V object5) =>
+      $MapType($K, $V).fromRef(_of3(
+              object.reference,
+              object1.reference,
+              object2.reference,
+              object3.reference,
+              object4.reference,
+              object5.reference)
+          .object);
+
+  static final _of4 = jniLookup<
+          ffi.NativeFunction<
+              jni.JniResult Function(
+                  ffi.Pointer<ffi.Void>,
+                  ffi.Pointer<ffi.Void>,
+                  ffi.Pointer<ffi.Void>,
+                  ffi.Pointer<ffi.Void>,
+                  ffi.Pointer<ffi.Void>,
+                  ffi.Pointer<ffi.Void>,
+                  ffi.Pointer<ffi.Void>,
+                  ffi.Pointer<ffi.Void>)>>("Map__of4")
+      .asFunction<
+          jni.JniResult Function(
+              ffi.Pointer<ffi.Void>,
+              ffi.Pointer<ffi.Void>,
+              ffi.Pointer<ffi.Void>,
+              ffi.Pointer<ffi.Void>,
+              ffi.Pointer<ffi.Void>,
+              ffi.Pointer<ffi.Void>,
+              ffi.Pointer<ffi.Void>,
+              ffi.Pointer<ffi.Void>)>();
+
+  /// from: static public java.util.Map of(K object, V object1, K object2, V object3, K object4, V object5, K object6, V object7)
+  /// The returned object must be deleted after use, by calling the `delete` method.
+  static Map<K, V> of4<K extends jni.JObject, V extends jni.JObject>(
+          jni.JObjType<K> $K,
+          jni.JObjType<V> $V,
+          K object,
+          V object1,
+          K object2,
+          V object3,
+          K object4,
+          V object5,
+          K object6,
+          V object7) =>
+      $MapType($K, $V).fromRef(_of4(
+              object.reference,
+              object1.reference,
+              object2.reference,
+              object3.reference,
+              object4.reference,
+              object5.reference,
+              object6.reference,
+              object7.reference)
+          .object);
+
+  static final _of5 = jniLookup<
+          ffi.NativeFunction<
+              jni.JniResult Function(
+                  ffi.Pointer<ffi.Void>,
+                  ffi.Pointer<ffi.Void>,
+                  ffi.Pointer<ffi.Void>,
+                  ffi.Pointer<ffi.Void>,
+                  ffi.Pointer<ffi.Void>,
+                  ffi.Pointer<ffi.Void>,
+                  ffi.Pointer<ffi.Void>,
+                  ffi.Pointer<ffi.Void>,
+                  ffi.Pointer<ffi.Void>,
+                  ffi.Pointer<ffi.Void>)>>("Map__of5")
+      .asFunction<
+          jni.JniResult Function(
+              ffi.Pointer<ffi.Void>,
+              ffi.Pointer<ffi.Void>,
+              ffi.Pointer<ffi.Void>,
+              ffi.Pointer<ffi.Void>,
+              ffi.Pointer<ffi.Void>,
+              ffi.Pointer<ffi.Void>,
+              ffi.Pointer<ffi.Void>,
+              ffi.Pointer<ffi.Void>,
+              ffi.Pointer<ffi.Void>,
+              ffi.Pointer<ffi.Void>)>();
+
+  /// from: static public java.util.Map of(K object, V object1, K object2, V object3, K object4, V object5, K object6, V object7, K object8, V object9)
+  /// The returned object must be deleted after use, by calling the `delete` method.
+  static Map<K, V> of5<K extends jni.JObject, V extends jni.JObject>(
+          jni.JObjType<K> $K,
+          jni.JObjType<V> $V,
+          K object,
+          V object1,
+          K object2,
+          V object3,
+          K object4,
+          V object5,
+          K object6,
+          V object7,
+          K object8,
+          V object9) =>
+      $MapType($K, $V).fromRef(_of5(
+              object.reference,
+              object1.reference,
+              object2.reference,
+              object3.reference,
+              object4.reference,
+              object5.reference,
+              object6.reference,
+              object7.reference,
+              object8.reference,
+              object9.reference)
+          .object);
+
+  static final _of6 = jniLookup<
+          ffi.NativeFunction<
+              jni.JniResult Function(
+                  ffi.Pointer<ffi.Void>,
+                  ffi.Pointer<ffi.Void>,
+                  ffi.Pointer<ffi.Void>,
+                  ffi.Pointer<ffi.Void>,
+                  ffi.Pointer<ffi.Void>,
+                  ffi.Pointer<ffi.Void>,
+                  ffi.Pointer<ffi.Void>,
+                  ffi.Pointer<ffi.Void>,
+                  ffi.Pointer<ffi.Void>,
+                  ffi.Pointer<ffi.Void>,
+                  ffi.Pointer<ffi.Void>,
+                  ffi.Pointer<ffi.Void>)>>("Map__of6")
+      .asFunction<
+          jni.JniResult Function(
+              ffi.Pointer<ffi.Void>,
+              ffi.Pointer<ffi.Void>,
+              ffi.Pointer<ffi.Void>,
+              ffi.Pointer<ffi.Void>,
+              ffi.Pointer<ffi.Void>,
+              ffi.Pointer<ffi.Void>,
+              ffi.Pointer<ffi.Void>,
+              ffi.Pointer<ffi.Void>,
+              ffi.Pointer<ffi.Void>,
+              ffi.Pointer<ffi.Void>,
+              ffi.Pointer<ffi.Void>,
+              ffi.Pointer<ffi.Void>)>();
+
+  /// from: static public java.util.Map of(K object, V object1, K object2, V object3, K object4, V object5, K object6, V object7, K object8, V object9, K object10, V object11)
+  /// The returned object must be deleted after use, by calling the `delete` method.
+  static Map<K, V> of6<K extends jni.JObject, V extends jni.JObject>(
+          jni.JObjType<K> $K,
+          jni.JObjType<V> $V,
+          K object,
+          V object1,
+          K object2,
+          V object3,
+          K object4,
+          V object5,
+          K object6,
+          V object7,
+          K object8,
+          V object9,
+          K object10,
+          V object11) =>
+      $MapType($K, $V).fromRef(_of6(
+              object.reference,
+              object1.reference,
+              object2.reference,
+              object3.reference,
+              object4.reference,
+              object5.reference,
+              object6.reference,
+              object7.reference,
+              object8.reference,
+              object9.reference,
+              object10.reference,
+              object11.reference)
+          .object);
+
+  static final _of7 = jniLookup<
+          ffi.NativeFunction<
+              jni.JniResult Function(
+                  ffi.Pointer<ffi.Void>,
+                  ffi.Pointer<ffi.Void>,
+                  ffi.Pointer<ffi.Void>,
+                  ffi.Pointer<ffi.Void>,
+                  ffi.Pointer<ffi.Void>,
+                  ffi.Pointer<ffi.Void>,
+                  ffi.Pointer<ffi.Void>,
+                  ffi.Pointer<ffi.Void>,
+                  ffi.Pointer<ffi.Void>,
+                  ffi.Pointer<ffi.Void>,
+                  ffi.Pointer<ffi.Void>,
+                  ffi.Pointer<ffi.Void>,
+                  ffi.Pointer<ffi.Void>,
+                  ffi.Pointer<ffi.Void>)>>("Map__of7")
+      .asFunction<
+          jni.JniResult Function(
+              ffi.Pointer<ffi.Void>,
+              ffi.Pointer<ffi.Void>,
+              ffi.Pointer<ffi.Void>,
+              ffi.Pointer<ffi.Void>,
+              ffi.Pointer<ffi.Void>,
+              ffi.Pointer<ffi.Void>,
+              ffi.Pointer<ffi.Void>,
+              ffi.Pointer<ffi.Void>,
+              ffi.Pointer<ffi.Void>,
+              ffi.Pointer<ffi.Void>,
+              ffi.Pointer<ffi.Void>,
+              ffi.Pointer<ffi.Void>,
+              ffi.Pointer<ffi.Void>,
+              ffi.Pointer<ffi.Void>)>();
+
+  /// from: static public java.util.Map of(K object, V object1, K object2, V object3, K object4, V object5, K object6, V object7, K object8, V object9, K object10, V object11, K object12, V object13)
+  /// The returned object must be deleted after use, by calling the `delete` method.
+  static Map<K, V> of7<K extends jni.JObject, V extends jni.JObject>(
+          jni.JObjType<K> $K,
+          jni.JObjType<V> $V,
+          K object,
+          V object1,
+          K object2,
+          V object3,
+          K object4,
+          V object5,
+          K object6,
+          V object7,
+          K object8,
+          V object9,
+          K object10,
+          V object11,
+          K object12,
+          V object13) =>
+      $MapType($K, $V).fromRef(_of7(
+              object.reference,
+              object1.reference,
+              object2.reference,
+              object3.reference,
+              object4.reference,
+              object5.reference,
+              object6.reference,
+              object7.reference,
+              object8.reference,
+              object9.reference,
+              object10.reference,
+              object11.reference,
+              object12.reference,
+              object13.reference)
+          .object);
+
+  static final _of8 = jniLookup<
+          ffi.NativeFunction<
+              jni.JniResult Function(
+                  ffi.Pointer<ffi.Void>,
+                  ffi.Pointer<ffi.Void>,
+                  ffi.Pointer<ffi.Void>,
+                  ffi.Pointer<ffi.Void>,
+                  ffi.Pointer<ffi.Void>,
+                  ffi.Pointer<ffi.Void>,
+                  ffi.Pointer<ffi.Void>,
+                  ffi.Pointer<ffi.Void>,
+                  ffi.Pointer<ffi.Void>,
+                  ffi.Pointer<ffi.Void>,
+                  ffi.Pointer<ffi.Void>,
+                  ffi.Pointer<ffi.Void>,
+                  ffi.Pointer<ffi.Void>,
+                  ffi.Pointer<ffi.Void>,
+                  ffi.Pointer<ffi.Void>,
+                  ffi.Pointer<ffi.Void>)>>("Map__of8")
+      .asFunction<
+          jni.JniResult Function(
+              ffi.Pointer<ffi.Void>,
+              ffi.Pointer<ffi.Void>,
+              ffi.Pointer<ffi.Void>,
+              ffi.Pointer<ffi.Void>,
+              ffi.Pointer<ffi.Void>,
+              ffi.Pointer<ffi.Void>,
+              ffi.Pointer<ffi.Void>,
+              ffi.Pointer<ffi.Void>,
+              ffi.Pointer<ffi.Void>,
+              ffi.Pointer<ffi.Void>,
+              ffi.Pointer<ffi.Void>,
+              ffi.Pointer<ffi.Void>,
+              ffi.Pointer<ffi.Void>,
+              ffi.Pointer<ffi.Void>,
+              ffi.Pointer<ffi.Void>,
+              ffi.Pointer<ffi.Void>)>();
+
+  /// from: static public java.util.Map of(K object, V object1, K object2, V object3, K object4, V object5, K object6, V object7, K object8, V object9, K object10, V object11, K object12, V object13, K object14, V object15)
+  /// The returned object must be deleted after use, by calling the `delete` method.
+  static Map<K, V> of8<K extends jni.JObject, V extends jni.JObject>(
+          jni.JObjType<K> $K,
+          jni.JObjType<V> $V,
+          K object,
+          V object1,
+          K object2,
+          V object3,
+          K object4,
+          V object5,
+          K object6,
+          V object7,
+          K object8,
+          V object9,
+          K object10,
+          V object11,
+          K object12,
+          V object13,
+          K object14,
+          V object15) =>
+      $MapType($K, $V).fromRef(_of8(
+              object.reference,
+              object1.reference,
+              object2.reference,
+              object3.reference,
+              object4.reference,
+              object5.reference,
+              object6.reference,
+              object7.reference,
+              object8.reference,
+              object9.reference,
+              object10.reference,
+              object11.reference,
+              object12.reference,
+              object13.reference,
+              object14.reference,
+              object15.reference)
+          .object);
+
+  static final _of9 = jniLookup<
+          ffi.NativeFunction<
+              jni.JniResult Function(
+                  ffi.Pointer<ffi.Void>,
+                  ffi.Pointer<ffi.Void>,
+                  ffi.Pointer<ffi.Void>,
+                  ffi.Pointer<ffi.Void>,
+                  ffi.Pointer<ffi.Void>,
+                  ffi.Pointer<ffi.Void>,
+                  ffi.Pointer<ffi.Void>,
+                  ffi.Pointer<ffi.Void>,
+                  ffi.Pointer<ffi.Void>,
+                  ffi.Pointer<ffi.Void>,
+                  ffi.Pointer<ffi.Void>,
+                  ffi.Pointer<ffi.Void>,
+                  ffi.Pointer<ffi.Void>,
+                  ffi.Pointer<ffi.Void>,
+                  ffi.Pointer<ffi.Void>,
+                  ffi.Pointer<ffi.Void>,
+                  ffi.Pointer<ffi.Void>,
+                  ffi.Pointer<ffi.Void>)>>("Map__of9")
+      .asFunction<
+          jni.JniResult Function(
+              ffi.Pointer<ffi.Void>,
+              ffi.Pointer<ffi.Void>,
+              ffi.Pointer<ffi.Void>,
+              ffi.Pointer<ffi.Void>,
+              ffi.Pointer<ffi.Void>,
+              ffi.Pointer<ffi.Void>,
+              ffi.Pointer<ffi.Void>,
+              ffi.Pointer<ffi.Void>,
+              ffi.Pointer<ffi.Void>,
+              ffi.Pointer<ffi.Void>,
+              ffi.Pointer<ffi.Void>,
+              ffi.Pointer<ffi.Void>,
+              ffi.Pointer<ffi.Void>,
+              ffi.Pointer<ffi.Void>,
+              ffi.Pointer<ffi.Void>,
+              ffi.Pointer<ffi.Void>,
+              ffi.Pointer<ffi.Void>,
+              ffi.Pointer<ffi.Void>)>();
+
+  /// from: static public java.util.Map of(K object, V object1, K object2, V object3, K object4, V object5, K object6, V object7, K object8, V object9, K object10, V object11, K object12, V object13, K object14, V object15, K object16, V object17)
+  /// The returned object must be deleted after use, by calling the `delete` method.
+  static Map<K, V> of9<K extends jni.JObject, V extends jni.JObject>(
+          jni.JObjType<K> $K,
+          jni.JObjType<V> $V,
+          K object,
+          V object1,
+          K object2,
+          V object3,
+          K object4,
+          V object5,
+          K object6,
+          V object7,
+          K object8,
+          V object9,
+          K object10,
+          V object11,
+          K object12,
+          V object13,
+          K object14,
+          V object15,
+          K object16,
+          V object17) =>
+      $MapType($K, $V).fromRef(_of9(
+              object.reference,
+              object1.reference,
+              object2.reference,
+              object3.reference,
+              object4.reference,
+              object5.reference,
+              object6.reference,
+              object7.reference,
+              object8.reference,
+              object9.reference,
+              object10.reference,
+              object11.reference,
+              object12.reference,
+              object13.reference,
+              object14.reference,
+              object15.reference,
+              object16.reference,
+              object17.reference)
+          .object);
+
+  static final _of10 = jniLookup<
+          ffi.NativeFunction<
+              jni.JniResult Function(
+                  ffi.Pointer<ffi.Void>,
+                  ffi.Pointer<ffi.Void>,
+                  ffi.Pointer<ffi.Void>,
+                  ffi.Pointer<ffi.Void>,
+                  ffi.Pointer<ffi.Void>,
+                  ffi.Pointer<ffi.Void>,
+                  ffi.Pointer<ffi.Void>,
+                  ffi.Pointer<ffi.Void>,
+                  ffi.Pointer<ffi.Void>,
+                  ffi.Pointer<ffi.Void>,
+                  ffi.Pointer<ffi.Void>,
+                  ffi.Pointer<ffi.Void>,
+                  ffi.Pointer<ffi.Void>,
+                  ffi.Pointer<ffi.Void>,
+                  ffi.Pointer<ffi.Void>,
+                  ffi.Pointer<ffi.Void>,
+                  ffi.Pointer<ffi.Void>,
+                  ffi.Pointer<ffi.Void>,
+                  ffi.Pointer<ffi.Void>,
+                  ffi.Pointer<ffi.Void>)>>("Map__of10")
+      .asFunction<
+          jni.JniResult Function(
+              ffi.Pointer<ffi.Void>,
+              ffi.Pointer<ffi.Void>,
+              ffi.Pointer<ffi.Void>,
+              ffi.Pointer<ffi.Void>,
+              ffi.Pointer<ffi.Void>,
+              ffi.Pointer<ffi.Void>,
+              ffi.Pointer<ffi.Void>,
+              ffi.Pointer<ffi.Void>,
+              ffi.Pointer<ffi.Void>,
+              ffi.Pointer<ffi.Void>,
+              ffi.Pointer<ffi.Void>,
+              ffi.Pointer<ffi.Void>,
+              ffi.Pointer<ffi.Void>,
+              ffi.Pointer<ffi.Void>,
+              ffi.Pointer<ffi.Void>,
+              ffi.Pointer<ffi.Void>,
+              ffi.Pointer<ffi.Void>,
+              ffi.Pointer<ffi.Void>,
+              ffi.Pointer<ffi.Void>,
+              ffi.Pointer<ffi.Void>)>();
+
+  /// from: static public java.util.Map of(K object, V object1, K object2, V object3, K object4, V object5, K object6, V object7, K object8, V object9, K object10, V object11, K object12, V object13, K object14, V object15, K object16, V object17, K object18, V object19)
+  /// The returned object must be deleted after use, by calling the `delete` method.
+  static Map<K, V> of10<K extends jni.JObject, V extends jni.JObject>(
+          jni.JObjType<K> $K,
+          jni.JObjType<V> $V,
+          K object,
+          V object1,
+          K object2,
+          V object3,
+          K object4,
+          V object5,
+          K object6,
+          V object7,
+          K object8,
+          V object9,
+          K object10,
+          V object11,
+          K object12,
+          V object13,
+          K object14,
+          V object15,
+          K object16,
+          V object17,
+          K object18,
+          V object19) =>
+      $MapType($K, $V).fromRef(_of10(
+              object.reference,
+              object1.reference,
+              object2.reference,
+              object3.reference,
+              object4.reference,
+              object5.reference,
+              object6.reference,
+              object7.reference,
+              object8.reference,
+              object9.reference,
+              object10.reference,
+              object11.reference,
+              object12.reference,
+              object13.reference,
+              object14.reference,
+              object15.reference,
+              object16.reference,
+              object17.reference,
+              object18.reference,
+              object19.reference)
+          .object);
+
+  static final _ofEntries = jniLookup<
+          ffi.NativeFunction<
+              jni.JniResult Function(ffi.Pointer<ffi.Void>)>>("Map__ofEntries")
+      .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
+
+  /// from: static public java.util.Map ofEntries(java.lang.Object[] entrys)
+  /// The returned object must be deleted after use, by calling the `delete` method.
+  static Map<K, V> ofEntries<K extends jni.JObject, V extends jni.JObject>(
+          jni.JObjType<K> $K,
+          jni.JObjType<V> $V,
+          jni.JArray<jni.JObject> entrys) =>
+      $MapType($K, $V).fromRef(_ofEntries(entrys.reference).object);
+
+  static final _entry = jniLookup<
+          ffi.NativeFunction<
+              jni.JniResult Function(
+                  ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>>("Map__entry")
+      .asFunction<
+          jni.JniResult Function(
+              ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>();
+
+  /// from: static public java.util.Map$Entry entry(K object, V object1)
+  /// The returned object must be deleted after use, by calling the `delete` method.
+  static jni.JObject entry<K extends jni.JObject, V extends jni.JObject>(
+          jni.JObjType<K> $K, jni.JObjType<V> $V, K object, V object1) =>
+      const jni.JObjectType()
+          .fromRef(_entry(object.reference, object1.reference).object);
+
+  static final _copyOf = jniLookup<
+          ffi.NativeFunction<
+              jni.JniResult Function(ffi.Pointer<ffi.Void>)>>("Map__copyOf")
+      .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
+
+  /// from: static public java.util.Map copyOf(java.util.Map map)
+  /// The returned object must be deleted after use, by calling the `delete` method.
+  static Map<K, V> copyOf<K extends jni.JObject, V extends jni.JObject>(
+          jni.JObjType<K> $K, jni.JObjType<V> $V, Map<K, V> map) =>
+      $MapType($K, $V).fromRef(_copyOf(map.reference).object);
+}
+
+class $MapType<K extends jni.JObject, V extends jni.JObject>
+    extends jni.JObjType<Map<K, V>> {
+  final jni.JObjType<K> $K;
+  final jni.JObjType<V> $V;
+
+  const $MapType(
+    this.$K,
+    this.$V,
+  );
+
+  @override
+  String get signature => r"Ljava/util/Map;";
+
+  @override
+  Map<K, V> fromRef(jni.JObjectPtr ref) => Map.fromRef($K, $V, ref);
+}
+
+extension $MapArray<K extends jni.JObject, V extends jni.JObject>
+    on jni.JArray<Map<K, V>> {
+  Map<K, V> operator [](int index) {
+    return (elementType as $MapType<K, V>)
+        .fromRef(elementAt(index, jni.JniCallType.objectType).object);
+  }
+
+  void operator []=(int index, Map<K, V> value) {
+    (this as jni.JArray<jni.JObject>)[index] = value;
+  }
+}
+
+/// from: java.util.Set
+class Set<E extends jni.JObject> extends jni.JObject {
+  late final jni.JObjType? _$type;
+  @override
+  jni.JObjType get $type => _$type ??= type(
+        $E,
+      );
+
+  final jni.JObjType<E> $E;
+
+  Set.fromRef(
+    this.$E,
+    jni.JObjectPtr ref,
+  ) : super.fromRef(ref);
+
+  /// The type which includes information such as the signature of this class.
+  static $SetType<E> type<E extends jni.JObject>(
+    jni.JObjType<E> $E,
+  ) {
+    return $SetType(
+      $E,
+    );
+  }
+
+  static final _size = jniLookup<
+          ffi.NativeFunction<
+              jni.JniResult Function(ffi.Pointer<ffi.Void>)>>("Set__size")
+      .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
+
+  /// from: public abstract int size()
+  int size() => _size(reference).integer;
+
+  static final _isEmpty = jniLookup<
+          ffi.NativeFunction<
+              jni.JniResult Function(ffi.Pointer<ffi.Void>)>>("Set__isEmpty")
+      .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
+
+  /// from: public abstract boolean isEmpty()
+  bool isEmpty() => _isEmpty(reference).boolean;
+
+  static final _contains = jniLookup<
+          ffi.NativeFunction<
+              jni.JniResult Function(ffi.Pointer<ffi.Void>,
+                  ffi.Pointer<ffi.Void>)>>("Set__contains")
+      .asFunction<
+          jni.JniResult Function(
+              ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>();
+
+  /// from: public abstract boolean contains(java.lang.Object object)
+  bool contains(jni.JObject object) =>
+      _contains(reference, object.reference).boolean;
+
+  static final _iterator = jniLookup<
+          ffi.NativeFunction<
+              jni.JniResult Function(ffi.Pointer<ffi.Void>)>>("Set__iterator")
+      .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
+
+  /// from: public abstract java.util.Iterator iterator()
+  /// The returned object must be deleted after use, by calling the `delete` method.
+  jni.JObject iterator() =>
+      const jni.JObjectType().fromRef(_iterator(reference).object);
+
+  static final _toArray = jniLookup<
+          ffi.NativeFunction<
+              jni.JniResult Function(ffi.Pointer<ffi.Void>)>>("Set__toArray")
+      .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
+
+  /// from: public abstract java.lang.Object[] toArray()
+  /// The returned object must be deleted after use, by calling the `delete` method.
+  jni.JArray<jni.JObject> toArray() => const jni.JArrayType(jni.JObjectType())
+      .fromRef(_toArray(reference).object);
+
+  static final _toArray1 = jniLookup<
+          ffi.NativeFunction<
+              jni.JniResult Function(ffi.Pointer<ffi.Void>,
+                  ffi.Pointer<ffi.Void>)>>("Set__toArray1")
+      .asFunction<
+          jni.JniResult Function(
+              ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>();
+
+  /// from: public abstract java.lang.Object[] toArray(java.lang.Object[] objects)
+  /// The returned object must be deleted after use, by calling the `delete` method.
+  jni.JArray<T> toArray1<T extends jni.JObject>(
+          jni.JObjType<T> $T, jni.JArray<T> objects) =>
+      jni.JArrayType($T)
+          .fromRef(_toArray1(reference, objects.reference).object);
+
+  static final _add = jniLookup<
+          ffi.NativeFunction<
+              jni.JniResult Function(
+                  ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>>("Set__add")
+      .asFunction<
+          jni.JniResult Function(
+              ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>();
+
+  /// from: public abstract boolean add(E object)
+  bool add(E object) => _add(reference, object.reference).boolean;
+
+  static final _remove = jniLookup<
+          ffi.NativeFunction<
+              jni.JniResult Function(
+                  ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>>("Set__remove")
+      .asFunction<
+          jni.JniResult Function(
+              ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>();
+
+  /// from: public abstract boolean remove(java.lang.Object object)
+  bool remove(jni.JObject object) =>
+      _remove(reference, object.reference).boolean;
+
+  static final _containsAll = jniLookup<
+          ffi.NativeFunction<
+              jni.JniResult Function(ffi.Pointer<ffi.Void>,
+                  ffi.Pointer<ffi.Void>)>>("Set__containsAll")
+      .asFunction<
+          jni.JniResult Function(
+              ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>();
+
+  /// from: public abstract boolean containsAll(java.util.Collection collection)
+  bool containsAll(jni.JObject collection) =>
+      _containsAll(reference, collection.reference).boolean;
+
+  static final _addAll = jniLookup<
+          ffi.NativeFunction<
+              jni.JniResult Function(
+                  ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>>("Set__addAll")
+      .asFunction<
+          jni.JniResult Function(
+              ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>();
+
+  /// from: public abstract boolean addAll(java.util.Collection collection)
+  bool addAll(jni.JObject collection) =>
+      _addAll(reference, collection.reference).boolean;
+
+  static final _retainAll = jniLookup<
+          ffi.NativeFunction<
+              jni.JniResult Function(ffi.Pointer<ffi.Void>,
+                  ffi.Pointer<ffi.Void>)>>("Set__retainAll")
+      .asFunction<
+          jni.JniResult Function(
+              ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>();
+
+  /// from: public abstract boolean retainAll(java.util.Collection collection)
+  bool retainAll(jni.JObject collection) =>
+      _retainAll(reference, collection.reference).boolean;
+
+  static final _removeAll = jniLookup<
+          ffi.NativeFunction<
+              jni.JniResult Function(ffi.Pointer<ffi.Void>,
+                  ffi.Pointer<ffi.Void>)>>("Set__removeAll")
+      .asFunction<
+          jni.JniResult Function(
+              ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>();
+
+  /// from: public abstract boolean removeAll(java.util.Collection collection)
+  bool removeAll(jni.JObject collection) =>
+      _removeAll(reference, collection.reference).boolean;
+
+  static final _clear = jniLookup<
+          ffi.NativeFunction<
+              jni.JniResult Function(ffi.Pointer<ffi.Void>)>>("Set__clear")
+      .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
+
+  /// from: public abstract void clear()
+  void clear() => _clear(reference).check();
+
+  static final _equals1 = jniLookup<
+          ffi.NativeFunction<
+              jni.JniResult Function(ffi.Pointer<ffi.Void>,
+                  ffi.Pointer<ffi.Void>)>>("Set__equals1")
+      .asFunction<
+          jni.JniResult Function(
+              ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>();
+
+  /// from: public abstract boolean equals(java.lang.Object object)
+  bool equals1(jni.JObject object) =>
+      _equals1(reference, object.reference).boolean;
+
+  static final _hashCode1 = jniLookup<
+          ffi.NativeFunction<
+              jni.JniResult Function(ffi.Pointer<ffi.Void>)>>("Set__hashCode1")
+      .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
+
+  /// from: public abstract int hashCode()
+  int hashCode1() => _hashCode1(reference).integer;
+
+  static final _spliterator = jniLookup<
+          ffi.NativeFunction<
+              jni.JniResult Function(
+                  ffi.Pointer<ffi.Void>)>>("Set__spliterator")
+      .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
+
+  /// from: public java.util.Spliterator spliterator()
+  /// The returned object must be deleted after use, by calling the `delete` method.
+  jni.JObject spliterator() =>
+      const jni.JObjectType().fromRef(_spliterator(reference).object);
+
+  static final _of =
+      jniLookup<ffi.NativeFunction<jni.JniResult Function()>>("Set__of")
+          .asFunction<jni.JniResult Function()>();
+
+  /// from: static public java.util.Set of()
+  /// The returned object must be deleted after use, by calling the `delete` method.
+  static Set<E> of<E extends jni.JObject>(jni.JObjType<E> $E) =>
+      $SetType($E).fromRef(_of().object);
+
+  static final _of1 = jniLookup<
+          ffi.NativeFunction<
+              jni.JniResult Function(ffi.Pointer<ffi.Void>)>>("Set__of1")
+      .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
+
+  /// from: static public java.util.Set of(E object)
+  /// The returned object must be deleted after use, by calling the `delete` method.
+  static Set<E> of1<E extends jni.JObject>(jni.JObjType<E> $E, E object) =>
+      $SetType($E).fromRef(_of1(object.reference).object);
+
+  static final _of2 = jniLookup<
+          ffi.NativeFunction<
+              jni.JniResult Function(
+                  ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>>("Set__of2")
+      .asFunction<
+          jni.JniResult Function(
+              ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>();
+
+  /// from: static public java.util.Set of(E object, E object1)
+  /// The returned object must be deleted after use, by calling the `delete` method.
+  static Set<E> of2<E extends jni.JObject>(
+          jni.JObjType<E> $E, E object, E object1) =>
+      $SetType($E).fromRef(_of2(object.reference, object1.reference).object);
+
+  static final _of3 = jniLookup<
+          ffi.NativeFunction<
+              jni.JniResult Function(ffi.Pointer<ffi.Void>,
+                  ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>>("Set__of3")
+      .asFunction<
+          jni.JniResult Function(ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>,
+              ffi.Pointer<ffi.Void>)>();
+
+  /// from: static public java.util.Set of(E object, E object1, E object2)
+  /// The returned object must be deleted after use, by calling the `delete` method.
+  static Set<E> of3<E extends jni.JObject>(
+          jni.JObjType<E> $E, E object, E object1, E object2) =>
+      $SetType($E).fromRef(
+          _of3(object.reference, object1.reference, object2.reference).object);
+
+  static final _of4 = jniLookup<
+          ffi.NativeFunction<
+              jni.JniResult Function(
+                  ffi.Pointer<ffi.Void>,
+                  ffi.Pointer<ffi.Void>,
+                  ffi.Pointer<ffi.Void>,
+                  ffi.Pointer<ffi.Void>)>>("Set__of4")
+      .asFunction<
+          jni.JniResult Function(ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>,
+              ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>();
+
+  /// from: static public java.util.Set of(E object, E object1, E object2, E object3)
+  /// The returned object must be deleted after use, by calling the `delete` method.
+  static Set<E> of4<E extends jni.JObject>(
+          jni.JObjType<E> $E, E object, E object1, E object2, E object3) =>
+      $SetType($E).fromRef(_of4(object.reference, object1.reference,
+              object2.reference, object3.reference)
+          .object);
+
+  static final _of5 = jniLookup<
+          ffi.NativeFunction<
+              jni.JniResult Function(
+                  ffi.Pointer<ffi.Void>,
+                  ffi.Pointer<ffi.Void>,
+                  ffi.Pointer<ffi.Void>,
+                  ffi.Pointer<ffi.Void>,
+                  ffi.Pointer<ffi.Void>)>>("Set__of5")
+      .asFunction<
+          jni.JniResult Function(
+              ffi.Pointer<ffi.Void>,
+              ffi.Pointer<ffi.Void>,
+              ffi.Pointer<ffi.Void>,
+              ffi.Pointer<ffi.Void>,
+              ffi.Pointer<ffi.Void>)>();
+
+  /// from: static public java.util.Set of(E object, E object1, E object2, E object3, E object4)
+  /// The returned object must be deleted after use, by calling the `delete` method.
+  static Set<E> of5<E extends jni.JObject>(jni.JObjType<E> $E, E object,
+          E object1, E object2, E object3, E object4) =>
+      $SetType($E).fromRef(_of5(object.reference, object1.reference,
+              object2.reference, object3.reference, object4.reference)
+          .object);
+
+  static final _of6 = jniLookup<
+          ffi.NativeFunction<
+              jni.JniResult Function(
+                  ffi.Pointer<ffi.Void>,
+                  ffi.Pointer<ffi.Void>,
+                  ffi.Pointer<ffi.Void>,
+                  ffi.Pointer<ffi.Void>,
+                  ffi.Pointer<ffi.Void>,
+                  ffi.Pointer<ffi.Void>)>>("Set__of6")
+      .asFunction<
+          jni.JniResult Function(
+              ffi.Pointer<ffi.Void>,
+              ffi.Pointer<ffi.Void>,
+              ffi.Pointer<ffi.Void>,
+              ffi.Pointer<ffi.Void>,
+              ffi.Pointer<ffi.Void>,
+              ffi.Pointer<ffi.Void>)>();
+
+  /// from: static public java.util.Set of(E object, E object1, E object2, E object3, E object4, E object5)
+  /// The returned object must be deleted after use, by calling the `delete` method.
+  static Set<E> of6<E extends jni.JObject>(jni.JObjType<E> $E, E object,
+          E object1, E object2, E object3, E object4, E object5) =>
+      $SetType($E).fromRef(_of6(
+              object.reference,
+              object1.reference,
+              object2.reference,
+              object3.reference,
+              object4.reference,
+              object5.reference)
+          .object);
+
+  static final _of7 = jniLookup<
+          ffi.NativeFunction<
+              jni.JniResult Function(
+                  ffi.Pointer<ffi.Void>,
+                  ffi.Pointer<ffi.Void>,
+                  ffi.Pointer<ffi.Void>,
+                  ffi.Pointer<ffi.Void>,
+                  ffi.Pointer<ffi.Void>,
+                  ffi.Pointer<ffi.Void>,
+                  ffi.Pointer<ffi.Void>)>>("Set__of7")
+      .asFunction<
+          jni.JniResult Function(
+              ffi.Pointer<ffi.Void>,
+              ffi.Pointer<ffi.Void>,
+              ffi.Pointer<ffi.Void>,
+              ffi.Pointer<ffi.Void>,
+              ffi.Pointer<ffi.Void>,
+              ffi.Pointer<ffi.Void>,
+              ffi.Pointer<ffi.Void>)>();
+
+  /// from: static public java.util.Set of(E object, E object1, E object2, E object3, E object4, E object5, E object6)
+  /// The returned object must be deleted after use, by calling the `delete` method.
+  static Set<E> of7<E extends jni.JObject>(jni.JObjType<E> $E, E object,
+          E object1, E object2, E object3, E object4, E object5, E object6) =>
+      $SetType($E).fromRef(_of7(
+              object.reference,
+              object1.reference,
+              object2.reference,
+              object3.reference,
+              object4.reference,
+              object5.reference,
+              object6.reference)
+          .object);
+
+  static final _of8 = jniLookup<
+          ffi.NativeFunction<
+              jni.JniResult Function(
+                  ffi.Pointer<ffi.Void>,
+                  ffi.Pointer<ffi.Void>,
+                  ffi.Pointer<ffi.Void>,
+                  ffi.Pointer<ffi.Void>,
+                  ffi.Pointer<ffi.Void>,
+                  ffi.Pointer<ffi.Void>,
+                  ffi.Pointer<ffi.Void>,
+                  ffi.Pointer<ffi.Void>)>>("Set__of8")
+      .asFunction<
+          jni.JniResult Function(
+              ffi.Pointer<ffi.Void>,
+              ffi.Pointer<ffi.Void>,
+              ffi.Pointer<ffi.Void>,
+              ffi.Pointer<ffi.Void>,
+              ffi.Pointer<ffi.Void>,
+              ffi.Pointer<ffi.Void>,
+              ffi.Pointer<ffi.Void>,
+              ffi.Pointer<ffi.Void>)>();
+
+  /// from: static public java.util.Set of(E object, E object1, E object2, E object3, E object4, E object5, E object6, E object7)
+  /// The returned object must be deleted after use, by calling the `delete` method.
+  static Set<E> of8<E extends jni.JObject>(
+          jni.JObjType<E> $E,
+          E object,
+          E object1,
+          E object2,
+          E object3,
+          E object4,
+          E object5,
+          E object6,
+          E object7) =>
+      $SetType($E).fromRef(_of8(
+              object.reference,
+              object1.reference,
+              object2.reference,
+              object3.reference,
+              object4.reference,
+              object5.reference,
+              object6.reference,
+              object7.reference)
+          .object);
+
+  static final _of9 = jniLookup<
+          ffi.NativeFunction<
+              jni.JniResult Function(
+                  ffi.Pointer<ffi.Void>,
+                  ffi.Pointer<ffi.Void>,
+                  ffi.Pointer<ffi.Void>,
+                  ffi.Pointer<ffi.Void>,
+                  ffi.Pointer<ffi.Void>,
+                  ffi.Pointer<ffi.Void>,
+                  ffi.Pointer<ffi.Void>,
+                  ffi.Pointer<ffi.Void>,
+                  ffi.Pointer<ffi.Void>)>>("Set__of9")
+      .asFunction<
+          jni.JniResult Function(
+              ffi.Pointer<ffi.Void>,
+              ffi.Pointer<ffi.Void>,
+              ffi.Pointer<ffi.Void>,
+              ffi.Pointer<ffi.Void>,
+              ffi.Pointer<ffi.Void>,
+              ffi.Pointer<ffi.Void>,
+              ffi.Pointer<ffi.Void>,
+              ffi.Pointer<ffi.Void>,
+              ffi.Pointer<ffi.Void>)>();
+
+  /// from: static public java.util.Set of(E object, E object1, E object2, E object3, E object4, E object5, E object6, E object7, E object8)
+  /// The returned object must be deleted after use, by calling the `delete` method.
+  static Set<E> of9<E extends jni.JObject>(
+          jni.JObjType<E> $E,
+          E object,
+          E object1,
+          E object2,
+          E object3,
+          E object4,
+          E object5,
+          E object6,
+          E object7,
+          E object8) =>
+      $SetType($E).fromRef(_of9(
+              object.reference,
+              object1.reference,
+              object2.reference,
+              object3.reference,
+              object4.reference,
+              object5.reference,
+              object6.reference,
+              object7.reference,
+              object8.reference)
+          .object);
+
+  static final _of10 = jniLookup<
+          ffi.NativeFunction<
+              jni.JniResult Function(
+                  ffi.Pointer<ffi.Void>,
+                  ffi.Pointer<ffi.Void>,
+                  ffi.Pointer<ffi.Void>,
+                  ffi.Pointer<ffi.Void>,
+                  ffi.Pointer<ffi.Void>,
+                  ffi.Pointer<ffi.Void>,
+                  ffi.Pointer<ffi.Void>,
+                  ffi.Pointer<ffi.Void>,
+                  ffi.Pointer<ffi.Void>,
+                  ffi.Pointer<ffi.Void>)>>("Set__of10")
+      .asFunction<
+          jni.JniResult Function(
+              ffi.Pointer<ffi.Void>,
+              ffi.Pointer<ffi.Void>,
+              ffi.Pointer<ffi.Void>,
+              ffi.Pointer<ffi.Void>,
+              ffi.Pointer<ffi.Void>,
+              ffi.Pointer<ffi.Void>,
+              ffi.Pointer<ffi.Void>,
+              ffi.Pointer<ffi.Void>,
+              ffi.Pointer<ffi.Void>,
+              ffi.Pointer<ffi.Void>)>();
+
+  /// from: static public java.util.Set of(E object, E object1, E object2, E object3, E object4, E object5, E object6, E object7, E object8, E object9)
+  /// The returned object must be deleted after use, by calling the `delete` method.
+  static Set<E> of10<E extends jni.JObject>(
+          jni.JObjType<E> $E,
+          E object,
+          E object1,
+          E object2,
+          E object3,
+          E object4,
+          E object5,
+          E object6,
+          E object7,
+          E object8,
+          E object9) =>
+      $SetType($E).fromRef(_of10(
+              object.reference,
+              object1.reference,
+              object2.reference,
+              object3.reference,
+              object4.reference,
+              object5.reference,
+              object6.reference,
+              object7.reference,
+              object8.reference,
+              object9.reference)
+          .object);
+
+  static final _of11 = jniLookup<
+          ffi.NativeFunction<
+              jni.JniResult Function(ffi.Pointer<ffi.Void>)>>("Set__of11")
+      .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
+
+  /// from: static public java.util.Set of(java.lang.Object[] objects)
+  /// The returned object must be deleted after use, by calling the `delete` method.
+  static Set<E> of11<E extends jni.JObject>(
+          jni.JObjType<E> $E, jni.JArray<E> objects) =>
+      $SetType($E).fromRef(_of11(objects.reference).object);
+
+  static final _copyOf = jniLookup<
+          ffi.NativeFunction<
+              jni.JniResult Function(ffi.Pointer<ffi.Void>)>>("Set__copyOf")
+      .asFunction<jni.JniResult Function(ffi.Pointer<ffi.Void>)>();
+
+  /// from: static public java.util.Set copyOf(java.util.Collection collection)
+  /// The returned object must be deleted after use, by calling the `delete` method.
+  static Set<E> copyOf<E extends jni.JObject>(
+          jni.JObjType<E> $E, jni.JObject collection) =>
+      $SetType($E).fromRef(_copyOf(collection.reference).object);
+}
+
+class $SetType<E extends jni.JObject> extends jni.JObjType<Set<E>> {
+  final jni.JObjType<E> $E;
+
+  const $SetType(
+    this.$E,
+  );
+
+  @override
+  String get signature => r"Ljava/util/Set;";
+
+  @override
+  Set<E> fromRef(jni.JObjectPtr ref) => Set.fromRef($E, ref);
+}
+
+extension $SetArray<E extends jni.JObject> on jni.JArray<Set<E>> {
+  Set<E> operator [](int index) {
+    return (elementType as $SetType<E>)
+        .fromRef(elementAt(index, jni.JniCallType.objectType).object);
+  }
+
+  void operator []=(int index, Set<E> value) {
+    (this as jni.JArray<jni.JObject>)[index] = value;
+  }
+}
+
 /// from: android.content.Context
 class Context extends jni.JObject {
   late final jni.JObjType? _$type;
@@ -2492,8 +4024,9 @@ class SharedPreferences extends jni.JObject {
 
   /// from: public abstract java.util.Map getAll()
   /// The returned object must be deleted after use, by calling the `delete` method.
-  jni.JObject getAll() =>
-      const jni.JObjectType().fromRef(_getAll(reference).object);
+  Map<jni.JObject, jni.JString> getAll() =>
+      $MapType(const jni.JObjectType(), jni.JStringType())
+          .fromRef(_getAll(reference).object);
 
   static final _getString = jniLookup<
           ffi.NativeFunction<
@@ -2523,8 +4056,8 @@ class SharedPreferences extends jni.JObject {
 
   /// from: public abstract java.util.Set getStringSet(java.lang.String string, java.util.Set set)
   /// The returned object must be deleted after use, by calling the `delete` method.
-  jni.JObject getStringSet(jni.JString string, jni.JObject set0) =>
-      const jni.JObjectType().fromRef(
+  Set<jni.JString> getStringSet(jni.JString string, Set<jni.JString> set0) =>
+      const $SetType(jni.JStringType()).fromRef(
           _getStringSet(reference, string.reference, set0.reference).object);
 
   static final _getInt = jniLookup<
@@ -2700,7 +4233,8 @@ class SharedPreferences_Editor extends jni.JObject {
 
   /// from: public abstract android.content.SharedPreferences$Editor putStringSet(java.lang.String string, java.util.Set set)
   /// The returned object must be deleted after use, by calling the `delete` method.
-  SharedPreferences_Editor putStringSet(jni.JString string, jni.JObject set0) =>
+  SharedPreferences_Editor putStringSet(
+          jni.JString string, Set<jni.JString> set0) =>
       const $SharedPreferences_EditorType().fromRef(
           _putStringSet(reference, string.reference, set0.reference).object);
 

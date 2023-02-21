@@ -15,6 +15,1333 @@ void setJniGetters(JniContext (*cg)(void), JNIEnv* (*eg)(void)) {
   env_getter = eg;
 }
 
+// java.util.Map
+jclass _c_Map = NULL;
+
+jmethodID _m_Map__size = NULL;
+FFI_PLUGIN_EXPORT
+JniResult Map__size(jobject self_) {
+  load_env();
+  load_class_gr(&_c_Map, "java/util/Map");
+  if (_c_Map == NULL)
+    return (JniResult){.result = {.j = 0}, .exception = check_exception()};
+  load_method(_c_Map, &_m_Map__size, "size", "()I");
+  if (_m_Map__size == NULL)
+    return (JniResult){.result = {.j = 0}, .exception = check_exception()};
+  int32_t _result = (*jniEnv)->CallIntMethod(jniEnv, self_, _m_Map__size);
+  return (JniResult){.result = {.i = _result}, .exception = check_exception()};
+}
+
+jmethodID _m_Map__isEmpty = NULL;
+FFI_PLUGIN_EXPORT
+JniResult Map__isEmpty(jobject self_) {
+  load_env();
+  load_class_gr(&_c_Map, "java/util/Map");
+  if (_c_Map == NULL)
+    return (JniResult){.result = {.j = 0}, .exception = check_exception()};
+  load_method(_c_Map, &_m_Map__isEmpty, "isEmpty", "()Z");
+  if (_m_Map__isEmpty == NULL)
+    return (JniResult){.result = {.j = 0}, .exception = check_exception()};
+  uint8_t _result =
+      (*jniEnv)->CallBooleanMethod(jniEnv, self_, _m_Map__isEmpty);
+  return (JniResult){.result = {.z = _result}, .exception = check_exception()};
+}
+
+jmethodID _m_Map__containsKey = NULL;
+FFI_PLUGIN_EXPORT
+JniResult Map__containsKey(jobject self_, jobject object) {
+  load_env();
+  load_class_gr(&_c_Map, "java/util/Map");
+  if (_c_Map == NULL)
+    return (JniResult){.result = {.j = 0}, .exception = check_exception()};
+  load_method(_c_Map, &_m_Map__containsKey, "containsKey",
+              "(Ljava/lang/Object;)Z");
+  if (_m_Map__containsKey == NULL)
+    return (JniResult){.result = {.j = 0}, .exception = check_exception()};
+  uint8_t _result =
+      (*jniEnv)->CallBooleanMethod(jniEnv, self_, _m_Map__containsKey, object);
+  return (JniResult){.result = {.z = _result}, .exception = check_exception()};
+}
+
+jmethodID _m_Map__containsValue = NULL;
+FFI_PLUGIN_EXPORT
+JniResult Map__containsValue(jobject self_, jobject object) {
+  load_env();
+  load_class_gr(&_c_Map, "java/util/Map");
+  if (_c_Map == NULL)
+    return (JniResult){.result = {.j = 0}, .exception = check_exception()};
+  load_method(_c_Map, &_m_Map__containsValue, "containsValue",
+              "(Ljava/lang/Object;)Z");
+  if (_m_Map__containsValue == NULL)
+    return (JniResult){.result = {.j = 0}, .exception = check_exception()};
+  uint8_t _result = (*jniEnv)->CallBooleanMethod(jniEnv, self_,
+                                                 _m_Map__containsValue, object);
+  return (JniResult){.result = {.z = _result}, .exception = check_exception()};
+}
+
+jmethodID _m_Map__get0 = NULL;
+FFI_PLUGIN_EXPORT
+JniResult Map__get0(jobject self_, jobject object) {
+  load_env();
+  load_class_gr(&_c_Map, "java/util/Map");
+  if (_c_Map == NULL)
+    return (JniResult){.result = {.j = 0}, .exception = check_exception()};
+  load_method(_c_Map, &_m_Map__get0, "get",
+              "(Ljava/lang/Object;)Ljava/lang/Object;");
+  if (_m_Map__get0 == NULL)
+    return (JniResult){.result = {.j = 0}, .exception = check_exception()};
+  jobject _result =
+      (*jniEnv)->CallObjectMethod(jniEnv, self_, _m_Map__get0, object);
+  return (JniResult){.result = {.l = to_global_ref(_result)},
+                     .exception = check_exception()};
+}
+
+jmethodID _m_Map__put = NULL;
+FFI_PLUGIN_EXPORT
+JniResult Map__put(jobject self_, jobject object, jobject object1) {
+  load_env();
+  load_class_gr(&_c_Map, "java/util/Map");
+  if (_c_Map == NULL)
+    return (JniResult){.result = {.j = 0}, .exception = check_exception()};
+  load_method(_c_Map, &_m_Map__put, "put",
+              "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;");
+  if (_m_Map__put == NULL)
+    return (JniResult){.result = {.j = 0}, .exception = check_exception()};
+  jobject _result =
+      (*jniEnv)->CallObjectMethod(jniEnv, self_, _m_Map__put, object, object1);
+  return (JniResult){.result = {.l = to_global_ref(_result)},
+                     .exception = check_exception()};
+}
+
+jmethodID _m_Map__remove = NULL;
+FFI_PLUGIN_EXPORT
+JniResult Map__remove(jobject self_, jobject object) {
+  load_env();
+  load_class_gr(&_c_Map, "java/util/Map");
+  if (_c_Map == NULL)
+    return (JniResult){.result = {.j = 0}, .exception = check_exception()};
+  load_method(_c_Map, &_m_Map__remove, "remove",
+              "(Ljava/lang/Object;)Ljava/lang/Object;");
+  if (_m_Map__remove == NULL)
+    return (JniResult){.result = {.j = 0}, .exception = check_exception()};
+  jobject _result =
+      (*jniEnv)->CallObjectMethod(jniEnv, self_, _m_Map__remove, object);
+  return (JniResult){.result = {.l = to_global_ref(_result)},
+                     .exception = check_exception()};
+}
+
+jmethodID _m_Map__putAll = NULL;
+FFI_PLUGIN_EXPORT
+JniResult Map__putAll(jobject self_, jobject map) {
+  load_env();
+  load_class_gr(&_c_Map, "java/util/Map");
+  if (_c_Map == NULL)
+    return (JniResult){.result = {.j = 0}, .exception = check_exception()};
+  load_method(_c_Map, &_m_Map__putAll, "putAll", "(Ljava/util/Map;)V");
+  if (_m_Map__putAll == NULL)
+    return (JniResult){.result = {.j = 0}, .exception = check_exception()};
+  (*jniEnv)->CallVoidMethod(jniEnv, self_, _m_Map__putAll, map);
+  return (JniResult){.result = {.j = 0}, .exception = check_exception()};
+}
+
+jmethodID _m_Map__clear = NULL;
+FFI_PLUGIN_EXPORT
+JniResult Map__clear(jobject self_) {
+  load_env();
+  load_class_gr(&_c_Map, "java/util/Map");
+  if (_c_Map == NULL)
+    return (JniResult){.result = {.j = 0}, .exception = check_exception()};
+  load_method(_c_Map, &_m_Map__clear, "clear", "()V");
+  if (_m_Map__clear == NULL)
+    return (JniResult){.result = {.j = 0}, .exception = check_exception()};
+  (*jniEnv)->CallVoidMethod(jniEnv, self_, _m_Map__clear);
+  return (JniResult){.result = {.j = 0}, .exception = check_exception()};
+}
+
+jmethodID _m_Map__keySet = NULL;
+FFI_PLUGIN_EXPORT
+JniResult Map__keySet(jobject self_) {
+  load_env();
+  load_class_gr(&_c_Map, "java/util/Map");
+  if (_c_Map == NULL)
+    return (JniResult){.result = {.j = 0}, .exception = check_exception()};
+  load_method(_c_Map, &_m_Map__keySet, "keySet", "()Ljava/util/Set;");
+  if (_m_Map__keySet == NULL)
+    return (JniResult){.result = {.j = 0}, .exception = check_exception()};
+  jobject _result = (*jniEnv)->CallObjectMethod(jniEnv, self_, _m_Map__keySet);
+  return (JniResult){.result = {.l = to_global_ref(_result)},
+                     .exception = check_exception()};
+}
+
+jmethodID _m_Map__values = NULL;
+FFI_PLUGIN_EXPORT
+JniResult Map__values(jobject self_) {
+  load_env();
+  load_class_gr(&_c_Map, "java/util/Map");
+  if (_c_Map == NULL)
+    return (JniResult){.result = {.j = 0}, .exception = check_exception()};
+  load_method(_c_Map, &_m_Map__values, "values", "()Ljava/util/Collection;");
+  if (_m_Map__values == NULL)
+    return (JniResult){.result = {.j = 0}, .exception = check_exception()};
+  jobject _result = (*jniEnv)->CallObjectMethod(jniEnv, self_, _m_Map__values);
+  return (JniResult){.result = {.l = to_global_ref(_result)},
+                     .exception = check_exception()};
+}
+
+jmethodID _m_Map__entrySet = NULL;
+FFI_PLUGIN_EXPORT
+JniResult Map__entrySet(jobject self_) {
+  load_env();
+  load_class_gr(&_c_Map, "java/util/Map");
+  if (_c_Map == NULL)
+    return (JniResult){.result = {.j = 0}, .exception = check_exception()};
+  load_method(_c_Map, &_m_Map__entrySet, "entrySet", "()Ljava/util/Set;");
+  if (_m_Map__entrySet == NULL)
+    return (JniResult){.result = {.j = 0}, .exception = check_exception()};
+  jobject _result =
+      (*jniEnv)->CallObjectMethod(jniEnv, self_, _m_Map__entrySet);
+  return (JniResult){.result = {.l = to_global_ref(_result)},
+                     .exception = check_exception()};
+}
+
+jmethodID _m_Map__equals1 = NULL;
+FFI_PLUGIN_EXPORT
+JniResult Map__equals1(jobject self_, jobject object) {
+  load_env();
+  load_class_gr(&_c_Map, "java/util/Map");
+  if (_c_Map == NULL)
+    return (JniResult){.result = {.j = 0}, .exception = check_exception()};
+  load_method(_c_Map, &_m_Map__equals1, "equals", "(Ljava/lang/Object;)Z");
+  if (_m_Map__equals1 == NULL)
+    return (JniResult){.result = {.j = 0}, .exception = check_exception()};
+  uint8_t _result =
+      (*jniEnv)->CallBooleanMethod(jniEnv, self_, _m_Map__equals1, object);
+  return (JniResult){.result = {.z = _result}, .exception = check_exception()};
+}
+
+jmethodID _m_Map__hashCode1 = NULL;
+FFI_PLUGIN_EXPORT
+JniResult Map__hashCode1(jobject self_) {
+  load_env();
+  load_class_gr(&_c_Map, "java/util/Map");
+  if (_c_Map == NULL)
+    return (JniResult){.result = {.j = 0}, .exception = check_exception()};
+  load_method(_c_Map, &_m_Map__hashCode1, "hashCode", "()I");
+  if (_m_Map__hashCode1 == NULL)
+    return (JniResult){.result = {.j = 0}, .exception = check_exception()};
+  int32_t _result = (*jniEnv)->CallIntMethod(jniEnv, self_, _m_Map__hashCode1);
+  return (JniResult){.result = {.i = _result}, .exception = check_exception()};
+}
+
+jmethodID _m_Map__getOrDefault = NULL;
+FFI_PLUGIN_EXPORT
+JniResult Map__getOrDefault(jobject self_, jobject object, jobject object1) {
+  load_env();
+  load_class_gr(&_c_Map, "java/util/Map");
+  if (_c_Map == NULL)
+    return (JniResult){.result = {.j = 0}, .exception = check_exception()};
+  load_method(_c_Map, &_m_Map__getOrDefault, "getOrDefault",
+              "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;");
+  if (_m_Map__getOrDefault == NULL)
+    return (JniResult){.result = {.j = 0}, .exception = check_exception()};
+  jobject _result = (*jniEnv)->CallObjectMethod(
+      jniEnv, self_, _m_Map__getOrDefault, object, object1);
+  return (JniResult){.result = {.l = to_global_ref(_result)},
+                     .exception = check_exception()};
+}
+
+jmethodID _m_Map__forEach = NULL;
+FFI_PLUGIN_EXPORT
+JniResult Map__forEach(jobject self_, jobject biConsumer) {
+  load_env();
+  load_class_gr(&_c_Map, "java/util/Map");
+  if (_c_Map == NULL)
+    return (JniResult){.result = {.j = 0}, .exception = check_exception()};
+  load_method(_c_Map, &_m_Map__forEach, "forEach",
+              "(Ljava/util/function/BiConsumer;)V");
+  if (_m_Map__forEach == NULL)
+    return (JniResult){.result = {.j = 0}, .exception = check_exception()};
+  (*jniEnv)->CallVoidMethod(jniEnv, self_, _m_Map__forEach, biConsumer);
+  return (JniResult){.result = {.j = 0}, .exception = check_exception()};
+}
+
+jmethodID _m_Map__replaceAll = NULL;
+FFI_PLUGIN_EXPORT
+JniResult Map__replaceAll(jobject self_, jobject biFunction) {
+  load_env();
+  load_class_gr(&_c_Map, "java/util/Map");
+  if (_c_Map == NULL)
+    return (JniResult){.result = {.j = 0}, .exception = check_exception()};
+  load_method(_c_Map, &_m_Map__replaceAll, "replaceAll",
+              "(Ljava/util/function/BiFunction;)V");
+  if (_m_Map__replaceAll == NULL)
+    return (JniResult){.result = {.j = 0}, .exception = check_exception()};
+  (*jniEnv)->CallVoidMethod(jniEnv, self_, _m_Map__replaceAll, biFunction);
+  return (JniResult){.result = {.j = 0}, .exception = check_exception()};
+}
+
+jmethodID _m_Map__putIfAbsent = NULL;
+FFI_PLUGIN_EXPORT
+JniResult Map__putIfAbsent(jobject self_, jobject object, jobject object1) {
+  load_env();
+  load_class_gr(&_c_Map, "java/util/Map");
+  if (_c_Map == NULL)
+    return (JniResult){.result = {.j = 0}, .exception = check_exception()};
+  load_method(_c_Map, &_m_Map__putIfAbsent, "putIfAbsent",
+              "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;");
+  if (_m_Map__putIfAbsent == NULL)
+    return (JniResult){.result = {.j = 0}, .exception = check_exception()};
+  jobject _result = (*jniEnv)->CallObjectMethod(
+      jniEnv, self_, _m_Map__putIfAbsent, object, object1);
+  return (JniResult){.result = {.l = to_global_ref(_result)},
+                     .exception = check_exception()};
+}
+
+jmethodID _m_Map__remove1 = NULL;
+FFI_PLUGIN_EXPORT
+JniResult Map__remove1(jobject self_, jobject object, jobject object1) {
+  load_env();
+  load_class_gr(&_c_Map, "java/util/Map");
+  if (_c_Map == NULL)
+    return (JniResult){.result = {.j = 0}, .exception = check_exception()};
+  load_method(_c_Map, &_m_Map__remove1, "remove",
+              "(Ljava/lang/Object;Ljava/lang/Object;)Z");
+  if (_m_Map__remove1 == NULL)
+    return (JniResult){.result = {.j = 0}, .exception = check_exception()};
+  uint8_t _result = (*jniEnv)->CallBooleanMethod(jniEnv, self_, _m_Map__remove1,
+                                                 object, object1);
+  return (JniResult){.result = {.z = _result}, .exception = check_exception()};
+}
+
+jmethodID _m_Map__replace = NULL;
+FFI_PLUGIN_EXPORT
+JniResult Map__replace(jobject self_,
+                       jobject object,
+                       jobject object1,
+                       jobject object2) {
+  load_env();
+  load_class_gr(&_c_Map, "java/util/Map");
+  if (_c_Map == NULL)
+    return (JniResult){.result = {.j = 0}, .exception = check_exception()};
+  load_method(_c_Map, &_m_Map__replace, "replace",
+              "(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)Z");
+  if (_m_Map__replace == NULL)
+    return (JniResult){.result = {.j = 0}, .exception = check_exception()};
+  uint8_t _result = (*jniEnv)->CallBooleanMethod(jniEnv, self_, _m_Map__replace,
+                                                 object, object1, object2);
+  return (JniResult){.result = {.z = _result}, .exception = check_exception()};
+}
+
+jmethodID _m_Map__replace1 = NULL;
+FFI_PLUGIN_EXPORT
+JniResult Map__replace1(jobject self_, jobject object, jobject object1) {
+  load_env();
+  load_class_gr(&_c_Map, "java/util/Map");
+  if (_c_Map == NULL)
+    return (JniResult){.result = {.j = 0}, .exception = check_exception()};
+  load_method(_c_Map, &_m_Map__replace1, "replace",
+              "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;");
+  if (_m_Map__replace1 == NULL)
+    return (JniResult){.result = {.j = 0}, .exception = check_exception()};
+  jobject _result = (*jniEnv)->CallObjectMethod(jniEnv, self_, _m_Map__replace1,
+                                                object, object1);
+  return (JniResult){.result = {.l = to_global_ref(_result)},
+                     .exception = check_exception()};
+}
+
+jmethodID _m_Map__computeIfAbsent = NULL;
+FFI_PLUGIN_EXPORT
+JniResult Map__computeIfAbsent(jobject self_,
+                               jobject object,
+                               jobject function) {
+  load_env();
+  load_class_gr(&_c_Map, "java/util/Map");
+  if (_c_Map == NULL)
+    return (JniResult){.result = {.j = 0}, .exception = check_exception()};
+  load_method(
+      _c_Map, &_m_Map__computeIfAbsent, "computeIfAbsent",
+      "(Ljava/lang/Object;Ljava/util/function/Function;)Ljava/lang/Object;");
+  if (_m_Map__computeIfAbsent == NULL)
+    return (JniResult){.result = {.j = 0}, .exception = check_exception()};
+  jobject _result = (*jniEnv)->CallObjectMethod(
+      jniEnv, self_, _m_Map__computeIfAbsent, object, function);
+  return (JniResult){.result = {.l = to_global_ref(_result)},
+                     .exception = check_exception()};
+}
+
+jmethodID _m_Map__computeIfPresent = NULL;
+FFI_PLUGIN_EXPORT
+JniResult Map__computeIfPresent(jobject self_,
+                                jobject object,
+                                jobject biFunction) {
+  load_env();
+  load_class_gr(&_c_Map, "java/util/Map");
+  if (_c_Map == NULL)
+    return (JniResult){.result = {.j = 0}, .exception = check_exception()};
+  load_method(
+      _c_Map, &_m_Map__computeIfPresent, "computeIfPresent",
+      "(Ljava/lang/Object;Ljava/util/function/BiFunction;)Ljava/lang/Object;");
+  if (_m_Map__computeIfPresent == NULL)
+    return (JniResult){.result = {.j = 0}, .exception = check_exception()};
+  jobject _result = (*jniEnv)->CallObjectMethod(
+      jniEnv, self_, _m_Map__computeIfPresent, object, biFunction);
+  return (JniResult){.result = {.l = to_global_ref(_result)},
+                     .exception = check_exception()};
+}
+
+jmethodID _m_Map__compute = NULL;
+FFI_PLUGIN_EXPORT
+JniResult Map__compute(jobject self_, jobject object, jobject biFunction) {
+  load_env();
+  load_class_gr(&_c_Map, "java/util/Map");
+  if (_c_Map == NULL)
+    return (JniResult){.result = {.j = 0}, .exception = check_exception()};
+  load_method(
+      _c_Map, &_m_Map__compute, "compute",
+      "(Ljava/lang/Object;Ljava/util/function/BiFunction;)Ljava/lang/Object;");
+  if (_m_Map__compute == NULL)
+    return (JniResult){.result = {.j = 0}, .exception = check_exception()};
+  jobject _result = (*jniEnv)->CallObjectMethod(jniEnv, self_, _m_Map__compute,
+                                                object, biFunction);
+  return (JniResult){.result = {.l = to_global_ref(_result)},
+                     .exception = check_exception()};
+}
+
+jmethodID _m_Map__merge = NULL;
+FFI_PLUGIN_EXPORT
+JniResult Map__merge(jobject self_,
+                     jobject object,
+                     jobject object1,
+                     jobject biFunction) {
+  load_env();
+  load_class_gr(&_c_Map, "java/util/Map");
+  if (_c_Map == NULL)
+    return (JniResult){.result = {.j = 0}, .exception = check_exception()};
+  load_method(_c_Map, &_m_Map__merge, "merge",
+              "(Ljava/lang/Object;Ljava/lang/Object;Ljava/util/function/"
+              "BiFunction;)Ljava/lang/Object;");
+  if (_m_Map__merge == NULL)
+    return (JniResult){.result = {.j = 0}, .exception = check_exception()};
+  jobject _result = (*jniEnv)->CallObjectMethod(jniEnv, self_, _m_Map__merge,
+                                                object, object1, biFunction);
+  return (JniResult){.result = {.l = to_global_ref(_result)},
+                     .exception = check_exception()};
+}
+
+jmethodID _m_Map__of = NULL;
+FFI_PLUGIN_EXPORT
+JniResult Map__of() {
+  load_env();
+  load_class_gr(&_c_Map, "java/util/Map");
+  if (_c_Map == NULL)
+    return (JniResult){.result = {.j = 0}, .exception = check_exception()};
+  load_static_method(_c_Map, &_m_Map__of, "of", "()Ljava/util/Map;");
+  if (_m_Map__of == NULL)
+    return (JniResult){.result = {.j = 0}, .exception = check_exception()};
+  jobject _result =
+      (*jniEnv)->CallStaticObjectMethod(jniEnv, _c_Map, _m_Map__of);
+  return (JniResult){.result = {.l = to_global_ref(_result)},
+                     .exception = check_exception()};
+}
+
+jmethodID _m_Map__of1 = NULL;
+FFI_PLUGIN_EXPORT
+JniResult Map__of1(jobject object, jobject object1) {
+  load_env();
+  load_class_gr(&_c_Map, "java/util/Map");
+  if (_c_Map == NULL)
+    return (JniResult){.result = {.j = 0}, .exception = check_exception()};
+  load_static_method(_c_Map, &_m_Map__of1, "of",
+                     "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/util/Map;");
+  if (_m_Map__of1 == NULL)
+    return (JniResult){.result = {.j = 0}, .exception = check_exception()};
+  jobject _result = (*jniEnv)->CallStaticObjectMethod(
+      jniEnv, _c_Map, _m_Map__of1, object, object1);
+  return (JniResult){.result = {.l = to_global_ref(_result)},
+                     .exception = check_exception()};
+}
+
+jmethodID _m_Map__of2 = NULL;
+FFI_PLUGIN_EXPORT
+JniResult Map__of2(jobject object,
+                   jobject object1,
+                   jobject object2,
+                   jobject object3) {
+  load_env();
+  load_class_gr(&_c_Map, "java/util/Map");
+  if (_c_Map == NULL)
+    return (JniResult){.result = {.j = 0}, .exception = check_exception()};
+  load_static_method(_c_Map, &_m_Map__of2, "of",
+                     "(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/"
+                     "Object;Ljava/lang/Object;)Ljava/util/Map;");
+  if (_m_Map__of2 == NULL)
+    return (JniResult){.result = {.j = 0}, .exception = check_exception()};
+  jobject _result = (*jniEnv)->CallStaticObjectMethod(
+      jniEnv, _c_Map, _m_Map__of2, object, object1, object2, object3);
+  return (JniResult){.result = {.l = to_global_ref(_result)},
+                     .exception = check_exception()};
+}
+
+jmethodID _m_Map__of3 = NULL;
+FFI_PLUGIN_EXPORT
+JniResult Map__of3(jobject object,
+                   jobject object1,
+                   jobject object2,
+                   jobject object3,
+                   jobject object4,
+                   jobject object5) {
+  load_env();
+  load_class_gr(&_c_Map, "java/util/Map");
+  if (_c_Map == NULL)
+    return (JniResult){.result = {.j = 0}, .exception = check_exception()};
+  load_static_method(
+      _c_Map, &_m_Map__of3, "of",
+      "(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/"
+      "Object;Ljava/lang/Object;Ljava/lang/Object;)Ljava/util/Map;");
+  if (_m_Map__of3 == NULL)
+    return (JniResult){.result = {.j = 0}, .exception = check_exception()};
+  jobject _result = (*jniEnv)->CallStaticObjectMethod(
+      jniEnv, _c_Map, _m_Map__of3, object, object1, object2, object3, object4,
+      object5);
+  return (JniResult){.result = {.l = to_global_ref(_result)},
+                     .exception = check_exception()};
+}
+
+jmethodID _m_Map__of4 = NULL;
+FFI_PLUGIN_EXPORT
+JniResult Map__of4(jobject object,
+                   jobject object1,
+                   jobject object2,
+                   jobject object3,
+                   jobject object4,
+                   jobject object5,
+                   jobject object6,
+                   jobject object7) {
+  load_env();
+  load_class_gr(&_c_Map, "java/util/Map");
+  if (_c_Map == NULL)
+    return (JniResult){.result = {.j = 0}, .exception = check_exception()};
+  load_static_method(
+      _c_Map, &_m_Map__of4, "of",
+      "(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/"
+      "Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/"
+      "Object;)Ljava/util/Map;");
+  if (_m_Map__of4 == NULL)
+    return (JniResult){.result = {.j = 0}, .exception = check_exception()};
+  jobject _result = (*jniEnv)->CallStaticObjectMethod(
+      jniEnv, _c_Map, _m_Map__of4, object, object1, object2, object3, object4,
+      object5, object6, object7);
+  return (JniResult){.result = {.l = to_global_ref(_result)},
+                     .exception = check_exception()};
+}
+
+jmethodID _m_Map__of5 = NULL;
+FFI_PLUGIN_EXPORT
+JniResult Map__of5(jobject object,
+                   jobject object1,
+                   jobject object2,
+                   jobject object3,
+                   jobject object4,
+                   jobject object5,
+                   jobject object6,
+                   jobject object7,
+                   jobject object8,
+                   jobject object9) {
+  load_env();
+  load_class_gr(&_c_Map, "java/util/Map");
+  if (_c_Map == NULL)
+    return (JniResult){.result = {.j = 0}, .exception = check_exception()};
+  load_static_method(
+      _c_Map, &_m_Map__of5, "of",
+      "(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/"
+      "Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/"
+      "Object;Ljava/lang/Object;Ljava/lang/Object;)Ljava/util/Map;");
+  if (_m_Map__of5 == NULL)
+    return (JniResult){.result = {.j = 0}, .exception = check_exception()};
+  jobject _result = (*jniEnv)->CallStaticObjectMethod(
+      jniEnv, _c_Map, _m_Map__of5, object, object1, object2, object3, object4,
+      object5, object6, object7, object8, object9);
+  return (JniResult){.result = {.l = to_global_ref(_result)},
+                     .exception = check_exception()};
+}
+
+jmethodID _m_Map__of6 = NULL;
+FFI_PLUGIN_EXPORT
+JniResult Map__of6(jobject object,
+                   jobject object1,
+                   jobject object2,
+                   jobject object3,
+                   jobject object4,
+                   jobject object5,
+                   jobject object6,
+                   jobject object7,
+                   jobject object8,
+                   jobject object9,
+                   jobject object10,
+                   jobject object11) {
+  load_env();
+  load_class_gr(&_c_Map, "java/util/Map");
+  if (_c_Map == NULL)
+    return (JniResult){.result = {.j = 0}, .exception = check_exception()};
+  load_static_method(
+      _c_Map, &_m_Map__of6, "of",
+      "(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/"
+      "Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/"
+      "Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/"
+      "Object;)Ljava/util/Map;");
+  if (_m_Map__of6 == NULL)
+    return (JniResult){.result = {.j = 0}, .exception = check_exception()};
+  jobject _result = (*jniEnv)->CallStaticObjectMethod(
+      jniEnv, _c_Map, _m_Map__of6, object, object1, object2, object3, object4,
+      object5, object6, object7, object8, object9, object10, object11);
+  return (JniResult){.result = {.l = to_global_ref(_result)},
+                     .exception = check_exception()};
+}
+
+jmethodID _m_Map__of7 = NULL;
+FFI_PLUGIN_EXPORT
+JniResult Map__of7(jobject object,
+                   jobject object1,
+                   jobject object2,
+                   jobject object3,
+                   jobject object4,
+                   jobject object5,
+                   jobject object6,
+                   jobject object7,
+                   jobject object8,
+                   jobject object9,
+                   jobject object10,
+                   jobject object11,
+                   jobject object12,
+                   jobject object13) {
+  load_env();
+  load_class_gr(&_c_Map, "java/util/Map");
+  if (_c_Map == NULL)
+    return (JniResult){.result = {.j = 0}, .exception = check_exception()};
+  load_static_method(
+      _c_Map, &_m_Map__of7, "of",
+      "(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/"
+      "Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/"
+      "Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/"
+      "Object;Ljava/lang/Object;Ljava/lang/Object;)Ljava/util/Map;");
+  if (_m_Map__of7 == NULL)
+    return (JniResult){.result = {.j = 0}, .exception = check_exception()};
+  jobject _result = (*jniEnv)->CallStaticObjectMethod(
+      jniEnv, _c_Map, _m_Map__of7, object, object1, object2, object3, object4,
+      object5, object6, object7, object8, object9, object10, object11, object12,
+      object13);
+  return (JniResult){.result = {.l = to_global_ref(_result)},
+                     .exception = check_exception()};
+}
+
+jmethodID _m_Map__of8 = NULL;
+FFI_PLUGIN_EXPORT
+JniResult Map__of8(jobject object,
+                   jobject object1,
+                   jobject object2,
+                   jobject object3,
+                   jobject object4,
+                   jobject object5,
+                   jobject object6,
+                   jobject object7,
+                   jobject object8,
+                   jobject object9,
+                   jobject object10,
+                   jobject object11,
+                   jobject object12,
+                   jobject object13,
+                   jobject object14,
+                   jobject object15) {
+  load_env();
+  load_class_gr(&_c_Map, "java/util/Map");
+  if (_c_Map == NULL)
+    return (JniResult){.result = {.j = 0}, .exception = check_exception()};
+  load_static_method(
+      _c_Map, &_m_Map__of8, "of",
+      "(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/"
+      "Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/"
+      "Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/"
+      "Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/"
+      "Object;)Ljava/util/Map;");
+  if (_m_Map__of8 == NULL)
+    return (JniResult){.result = {.j = 0}, .exception = check_exception()};
+  jobject _result = (*jniEnv)->CallStaticObjectMethod(
+      jniEnv, _c_Map, _m_Map__of8, object, object1, object2, object3, object4,
+      object5, object6, object7, object8, object9, object10, object11, object12,
+      object13, object14, object15);
+  return (JniResult){.result = {.l = to_global_ref(_result)},
+                     .exception = check_exception()};
+}
+
+jmethodID _m_Map__of9 = NULL;
+FFI_PLUGIN_EXPORT
+JniResult Map__of9(jobject object,
+                   jobject object1,
+                   jobject object2,
+                   jobject object3,
+                   jobject object4,
+                   jobject object5,
+                   jobject object6,
+                   jobject object7,
+                   jobject object8,
+                   jobject object9,
+                   jobject object10,
+                   jobject object11,
+                   jobject object12,
+                   jobject object13,
+                   jobject object14,
+                   jobject object15,
+                   jobject object16,
+                   jobject object17) {
+  load_env();
+  load_class_gr(&_c_Map, "java/util/Map");
+  if (_c_Map == NULL)
+    return (JniResult){.result = {.j = 0}, .exception = check_exception()};
+  load_static_method(
+      _c_Map, &_m_Map__of9, "of",
+      "(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/"
+      "Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/"
+      "Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/"
+      "Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/"
+      "Object;Ljava/lang/Object;Ljava/lang/Object;)Ljava/util/Map;");
+  if (_m_Map__of9 == NULL)
+    return (JniResult){.result = {.j = 0}, .exception = check_exception()};
+  jobject _result = (*jniEnv)->CallStaticObjectMethod(
+      jniEnv, _c_Map, _m_Map__of9, object, object1, object2, object3, object4,
+      object5, object6, object7, object8, object9, object10, object11, object12,
+      object13, object14, object15, object16, object17);
+  return (JniResult){.result = {.l = to_global_ref(_result)},
+                     .exception = check_exception()};
+}
+
+jmethodID _m_Map__of10 = NULL;
+FFI_PLUGIN_EXPORT
+JniResult Map__of10(jobject object,
+                    jobject object1,
+                    jobject object2,
+                    jobject object3,
+                    jobject object4,
+                    jobject object5,
+                    jobject object6,
+                    jobject object7,
+                    jobject object8,
+                    jobject object9,
+                    jobject object10,
+                    jobject object11,
+                    jobject object12,
+                    jobject object13,
+                    jobject object14,
+                    jobject object15,
+                    jobject object16,
+                    jobject object17,
+                    jobject object18,
+                    jobject object19) {
+  load_env();
+  load_class_gr(&_c_Map, "java/util/Map");
+  if (_c_Map == NULL)
+    return (JniResult){.result = {.j = 0}, .exception = check_exception()};
+  load_static_method(
+      _c_Map, &_m_Map__of10, "of",
+      "(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/"
+      "Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/"
+      "Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/"
+      "Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/"
+      "Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/"
+      "Object;)Ljava/util/Map;");
+  if (_m_Map__of10 == NULL)
+    return (JniResult){.result = {.j = 0}, .exception = check_exception()};
+  jobject _result = (*jniEnv)->CallStaticObjectMethod(
+      jniEnv, _c_Map, _m_Map__of10, object, object1, object2, object3, object4,
+      object5, object6, object7, object8, object9, object10, object11, object12,
+      object13, object14, object15, object16, object17, object18, object19);
+  return (JniResult){.result = {.l = to_global_ref(_result)},
+                     .exception = check_exception()};
+}
+
+jmethodID _m_Map__ofEntries = NULL;
+FFI_PLUGIN_EXPORT
+JniResult Map__ofEntries(jobject entrys) {
+  load_env();
+  load_class_gr(&_c_Map, "java/util/Map");
+  if (_c_Map == NULL)
+    return (JniResult){.result = {.j = 0}, .exception = check_exception()};
+  load_static_method(_c_Map, &_m_Map__ofEntries, "ofEntries",
+                     "([Ljava/util/Map$Entry;)Ljava/util/Map;");
+  if (_m_Map__ofEntries == NULL)
+    return (JniResult){.result = {.j = 0}, .exception = check_exception()};
+  jobject _result = (*jniEnv)->CallStaticObjectMethod(
+      jniEnv, _c_Map, _m_Map__ofEntries, entrys);
+  return (JniResult){.result = {.l = to_global_ref(_result)},
+                     .exception = check_exception()};
+}
+
+jmethodID _m_Map__entry = NULL;
+FFI_PLUGIN_EXPORT
+JniResult Map__entry(jobject object, jobject object1) {
+  load_env();
+  load_class_gr(&_c_Map, "java/util/Map");
+  if (_c_Map == NULL)
+    return (JniResult){.result = {.j = 0}, .exception = check_exception()};
+  load_static_method(
+      _c_Map, &_m_Map__entry, "entry",
+      "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/util/Map$Entry;");
+  if (_m_Map__entry == NULL)
+    return (JniResult){.result = {.j = 0}, .exception = check_exception()};
+  jobject _result = (*jniEnv)->CallStaticObjectMethod(
+      jniEnv, _c_Map, _m_Map__entry, object, object1);
+  return (JniResult){.result = {.l = to_global_ref(_result)},
+                     .exception = check_exception()};
+}
+
+jmethodID _m_Map__copyOf = NULL;
+FFI_PLUGIN_EXPORT
+JniResult Map__copyOf(jobject map) {
+  load_env();
+  load_class_gr(&_c_Map, "java/util/Map");
+  if (_c_Map == NULL)
+    return (JniResult){.result = {.j = 0}, .exception = check_exception()};
+  load_static_method(_c_Map, &_m_Map__copyOf, "copyOf",
+                     "(Ljava/util/Map;)Ljava/util/Map;");
+  if (_m_Map__copyOf == NULL)
+    return (JniResult){.result = {.j = 0}, .exception = check_exception()};
+  jobject _result =
+      (*jniEnv)->CallStaticObjectMethod(jniEnv, _c_Map, _m_Map__copyOf, map);
+  return (JniResult){.result = {.l = to_global_ref(_result)},
+                     .exception = check_exception()};
+}
+
+// java.util.Set
+jclass _c_Set = NULL;
+
+jmethodID _m_Set__size = NULL;
+FFI_PLUGIN_EXPORT
+JniResult Set__size(jobject self_) {
+  load_env();
+  load_class_gr(&_c_Set, "java/util/Set");
+  if (_c_Set == NULL)
+    return (JniResult){.result = {.j = 0}, .exception = check_exception()};
+  load_method(_c_Set, &_m_Set__size, "size", "()I");
+  if (_m_Set__size == NULL)
+    return (JniResult){.result = {.j = 0}, .exception = check_exception()};
+  int32_t _result = (*jniEnv)->CallIntMethod(jniEnv, self_, _m_Set__size);
+  return (JniResult){.result = {.i = _result}, .exception = check_exception()};
+}
+
+jmethodID _m_Set__isEmpty = NULL;
+FFI_PLUGIN_EXPORT
+JniResult Set__isEmpty(jobject self_) {
+  load_env();
+  load_class_gr(&_c_Set, "java/util/Set");
+  if (_c_Set == NULL)
+    return (JniResult){.result = {.j = 0}, .exception = check_exception()};
+  load_method(_c_Set, &_m_Set__isEmpty, "isEmpty", "()Z");
+  if (_m_Set__isEmpty == NULL)
+    return (JniResult){.result = {.j = 0}, .exception = check_exception()};
+  uint8_t _result =
+      (*jniEnv)->CallBooleanMethod(jniEnv, self_, _m_Set__isEmpty);
+  return (JniResult){.result = {.z = _result}, .exception = check_exception()};
+}
+
+jmethodID _m_Set__contains = NULL;
+FFI_PLUGIN_EXPORT
+JniResult Set__contains(jobject self_, jobject object) {
+  load_env();
+  load_class_gr(&_c_Set, "java/util/Set");
+  if (_c_Set == NULL)
+    return (JniResult){.result = {.j = 0}, .exception = check_exception()};
+  load_method(_c_Set, &_m_Set__contains, "contains", "(Ljava/lang/Object;)Z");
+  if (_m_Set__contains == NULL)
+    return (JniResult){.result = {.j = 0}, .exception = check_exception()};
+  uint8_t _result =
+      (*jniEnv)->CallBooleanMethod(jniEnv, self_, _m_Set__contains, object);
+  return (JniResult){.result = {.z = _result}, .exception = check_exception()};
+}
+
+jmethodID _m_Set__iterator = NULL;
+FFI_PLUGIN_EXPORT
+JniResult Set__iterator(jobject self_) {
+  load_env();
+  load_class_gr(&_c_Set, "java/util/Set");
+  if (_c_Set == NULL)
+    return (JniResult){.result = {.j = 0}, .exception = check_exception()};
+  load_method(_c_Set, &_m_Set__iterator, "iterator", "()Ljava/util/Iterator;");
+  if (_m_Set__iterator == NULL)
+    return (JniResult){.result = {.j = 0}, .exception = check_exception()};
+  jobject _result =
+      (*jniEnv)->CallObjectMethod(jniEnv, self_, _m_Set__iterator);
+  return (JniResult){.result = {.l = to_global_ref(_result)},
+                     .exception = check_exception()};
+}
+
+jmethodID _m_Set__toArray = NULL;
+FFI_PLUGIN_EXPORT
+JniResult Set__toArray(jobject self_) {
+  load_env();
+  load_class_gr(&_c_Set, "java/util/Set");
+  if (_c_Set == NULL)
+    return (JniResult){.result = {.j = 0}, .exception = check_exception()};
+  load_method(_c_Set, &_m_Set__toArray, "toArray", "()[Ljava/lang/Object;");
+  if (_m_Set__toArray == NULL)
+    return (JniResult){.result = {.j = 0}, .exception = check_exception()};
+  jobject _result = (*jniEnv)->CallObjectMethod(jniEnv, self_, _m_Set__toArray);
+  return (JniResult){.result = {.l = to_global_ref(_result)},
+                     .exception = check_exception()};
+}
+
+jmethodID _m_Set__toArray1 = NULL;
+FFI_PLUGIN_EXPORT
+JniResult Set__toArray1(jobject self_, jobject objects) {
+  load_env();
+  load_class_gr(&_c_Set, "java/util/Set");
+  if (_c_Set == NULL)
+    return (JniResult){.result = {.j = 0}, .exception = check_exception()};
+  load_method(_c_Set, &_m_Set__toArray1, "toArray",
+              "([Ljava/lang/Object;)[Ljava/lang/Object;");
+  if (_m_Set__toArray1 == NULL)
+    return (JniResult){.result = {.j = 0}, .exception = check_exception()};
+  jobject _result =
+      (*jniEnv)->CallObjectMethod(jniEnv, self_, _m_Set__toArray1, objects);
+  return (JniResult){.result = {.l = to_global_ref(_result)},
+                     .exception = check_exception()};
+}
+
+jmethodID _m_Set__add = NULL;
+FFI_PLUGIN_EXPORT
+JniResult Set__add(jobject self_, jobject object) {
+  load_env();
+  load_class_gr(&_c_Set, "java/util/Set");
+  if (_c_Set == NULL)
+    return (JniResult){.result = {.j = 0}, .exception = check_exception()};
+  load_method(_c_Set, &_m_Set__add, "add", "(Ljava/lang/Object;)Z");
+  if (_m_Set__add == NULL)
+    return (JniResult){.result = {.j = 0}, .exception = check_exception()};
+  uint8_t _result =
+      (*jniEnv)->CallBooleanMethod(jniEnv, self_, _m_Set__add, object);
+  return (JniResult){.result = {.z = _result}, .exception = check_exception()};
+}
+
+jmethodID _m_Set__remove = NULL;
+FFI_PLUGIN_EXPORT
+JniResult Set__remove(jobject self_, jobject object) {
+  load_env();
+  load_class_gr(&_c_Set, "java/util/Set");
+  if (_c_Set == NULL)
+    return (JniResult){.result = {.j = 0}, .exception = check_exception()};
+  load_method(_c_Set, &_m_Set__remove, "remove", "(Ljava/lang/Object;)Z");
+  if (_m_Set__remove == NULL)
+    return (JniResult){.result = {.j = 0}, .exception = check_exception()};
+  uint8_t _result =
+      (*jniEnv)->CallBooleanMethod(jniEnv, self_, _m_Set__remove, object);
+  return (JniResult){.result = {.z = _result}, .exception = check_exception()};
+}
+
+jmethodID _m_Set__containsAll = NULL;
+FFI_PLUGIN_EXPORT
+JniResult Set__containsAll(jobject self_, jobject collection) {
+  load_env();
+  load_class_gr(&_c_Set, "java/util/Set");
+  if (_c_Set == NULL)
+    return (JniResult){.result = {.j = 0}, .exception = check_exception()};
+  load_method(_c_Set, &_m_Set__containsAll, "containsAll",
+              "(Ljava/util/Collection;)Z");
+  if (_m_Set__containsAll == NULL)
+    return (JniResult){.result = {.j = 0}, .exception = check_exception()};
+  uint8_t _result = (*jniEnv)->CallBooleanMethod(
+      jniEnv, self_, _m_Set__containsAll, collection);
+  return (JniResult){.result = {.z = _result}, .exception = check_exception()};
+}
+
+jmethodID _m_Set__addAll = NULL;
+FFI_PLUGIN_EXPORT
+JniResult Set__addAll(jobject self_, jobject collection) {
+  load_env();
+  load_class_gr(&_c_Set, "java/util/Set");
+  if (_c_Set == NULL)
+    return (JniResult){.result = {.j = 0}, .exception = check_exception()};
+  load_method(_c_Set, &_m_Set__addAll, "addAll", "(Ljava/util/Collection;)Z");
+  if (_m_Set__addAll == NULL)
+    return (JniResult){.result = {.j = 0}, .exception = check_exception()};
+  uint8_t _result =
+      (*jniEnv)->CallBooleanMethod(jniEnv, self_, _m_Set__addAll, collection);
+  return (JniResult){.result = {.z = _result}, .exception = check_exception()};
+}
+
+jmethodID _m_Set__retainAll = NULL;
+FFI_PLUGIN_EXPORT
+JniResult Set__retainAll(jobject self_, jobject collection) {
+  load_env();
+  load_class_gr(&_c_Set, "java/util/Set");
+  if (_c_Set == NULL)
+    return (JniResult){.result = {.j = 0}, .exception = check_exception()};
+  load_method(_c_Set, &_m_Set__retainAll, "retainAll",
+              "(Ljava/util/Collection;)Z");
+  if (_m_Set__retainAll == NULL)
+    return (JniResult){.result = {.j = 0}, .exception = check_exception()};
+  uint8_t _result = (*jniEnv)->CallBooleanMethod(jniEnv, self_,
+                                                 _m_Set__retainAll, collection);
+  return (JniResult){.result = {.z = _result}, .exception = check_exception()};
+}
+
+jmethodID _m_Set__removeAll = NULL;
+FFI_PLUGIN_EXPORT
+JniResult Set__removeAll(jobject self_, jobject collection) {
+  load_env();
+  load_class_gr(&_c_Set, "java/util/Set");
+  if (_c_Set == NULL)
+    return (JniResult){.result = {.j = 0}, .exception = check_exception()};
+  load_method(_c_Set, &_m_Set__removeAll, "removeAll",
+              "(Ljava/util/Collection;)Z");
+  if (_m_Set__removeAll == NULL)
+    return (JniResult){.result = {.j = 0}, .exception = check_exception()};
+  uint8_t _result = (*jniEnv)->CallBooleanMethod(jniEnv, self_,
+                                                 _m_Set__removeAll, collection);
+  return (JniResult){.result = {.z = _result}, .exception = check_exception()};
+}
+
+jmethodID _m_Set__clear = NULL;
+FFI_PLUGIN_EXPORT
+JniResult Set__clear(jobject self_) {
+  load_env();
+  load_class_gr(&_c_Set, "java/util/Set");
+  if (_c_Set == NULL)
+    return (JniResult){.result = {.j = 0}, .exception = check_exception()};
+  load_method(_c_Set, &_m_Set__clear, "clear", "()V");
+  if (_m_Set__clear == NULL)
+    return (JniResult){.result = {.j = 0}, .exception = check_exception()};
+  (*jniEnv)->CallVoidMethod(jniEnv, self_, _m_Set__clear);
+  return (JniResult){.result = {.j = 0}, .exception = check_exception()};
+}
+
+jmethodID _m_Set__equals1 = NULL;
+FFI_PLUGIN_EXPORT
+JniResult Set__equals1(jobject self_, jobject object) {
+  load_env();
+  load_class_gr(&_c_Set, "java/util/Set");
+  if (_c_Set == NULL)
+    return (JniResult){.result = {.j = 0}, .exception = check_exception()};
+  load_method(_c_Set, &_m_Set__equals1, "equals", "(Ljava/lang/Object;)Z");
+  if (_m_Set__equals1 == NULL)
+    return (JniResult){.result = {.j = 0}, .exception = check_exception()};
+  uint8_t _result =
+      (*jniEnv)->CallBooleanMethod(jniEnv, self_, _m_Set__equals1, object);
+  return (JniResult){.result = {.z = _result}, .exception = check_exception()};
+}
+
+jmethodID _m_Set__hashCode1 = NULL;
+FFI_PLUGIN_EXPORT
+JniResult Set__hashCode1(jobject self_) {
+  load_env();
+  load_class_gr(&_c_Set, "java/util/Set");
+  if (_c_Set == NULL)
+    return (JniResult){.result = {.j = 0}, .exception = check_exception()};
+  load_method(_c_Set, &_m_Set__hashCode1, "hashCode", "()I");
+  if (_m_Set__hashCode1 == NULL)
+    return (JniResult){.result = {.j = 0}, .exception = check_exception()};
+  int32_t _result = (*jniEnv)->CallIntMethod(jniEnv, self_, _m_Set__hashCode1);
+  return (JniResult){.result = {.i = _result}, .exception = check_exception()};
+}
+
+jmethodID _m_Set__spliterator = NULL;
+FFI_PLUGIN_EXPORT
+JniResult Set__spliterator(jobject self_) {
+  load_env();
+  load_class_gr(&_c_Set, "java/util/Set");
+  if (_c_Set == NULL)
+    return (JniResult){.result = {.j = 0}, .exception = check_exception()};
+  load_method(_c_Set, &_m_Set__spliterator, "spliterator",
+              "()Ljava/util/Spliterator;");
+  if (_m_Set__spliterator == NULL)
+    return (JniResult){.result = {.j = 0}, .exception = check_exception()};
+  jobject _result =
+      (*jniEnv)->CallObjectMethod(jniEnv, self_, _m_Set__spliterator);
+  return (JniResult){.result = {.l = to_global_ref(_result)},
+                     .exception = check_exception()};
+}
+
+jmethodID _m_Set__of = NULL;
+FFI_PLUGIN_EXPORT
+JniResult Set__of() {
+  load_env();
+  load_class_gr(&_c_Set, "java/util/Set");
+  if (_c_Set == NULL)
+    return (JniResult){.result = {.j = 0}, .exception = check_exception()};
+  load_static_method(_c_Set, &_m_Set__of, "of", "()Ljava/util/Set;");
+  if (_m_Set__of == NULL)
+    return (JniResult){.result = {.j = 0}, .exception = check_exception()};
+  jobject _result =
+      (*jniEnv)->CallStaticObjectMethod(jniEnv, _c_Set, _m_Set__of);
+  return (JniResult){.result = {.l = to_global_ref(_result)},
+                     .exception = check_exception()};
+}
+
+jmethodID _m_Set__of1 = NULL;
+FFI_PLUGIN_EXPORT
+JniResult Set__of1(jobject object) {
+  load_env();
+  load_class_gr(&_c_Set, "java/util/Set");
+  if (_c_Set == NULL)
+    return (JniResult){.result = {.j = 0}, .exception = check_exception()};
+  load_static_method(_c_Set, &_m_Set__of1, "of",
+                     "(Ljava/lang/Object;)Ljava/util/Set;");
+  if (_m_Set__of1 == NULL)
+    return (JniResult){.result = {.j = 0}, .exception = check_exception()};
+  jobject _result =
+      (*jniEnv)->CallStaticObjectMethod(jniEnv, _c_Set, _m_Set__of1, object);
+  return (JniResult){.result = {.l = to_global_ref(_result)},
+                     .exception = check_exception()};
+}
+
+jmethodID _m_Set__of2 = NULL;
+FFI_PLUGIN_EXPORT
+JniResult Set__of2(jobject object, jobject object1) {
+  load_env();
+  load_class_gr(&_c_Set, "java/util/Set");
+  if (_c_Set == NULL)
+    return (JniResult){.result = {.j = 0}, .exception = check_exception()};
+  load_static_method(_c_Set, &_m_Set__of2, "of",
+                     "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/util/Set;");
+  if (_m_Set__of2 == NULL)
+    return (JniResult){.result = {.j = 0}, .exception = check_exception()};
+  jobject _result = (*jniEnv)->CallStaticObjectMethod(
+      jniEnv, _c_Set, _m_Set__of2, object, object1);
+  return (JniResult){.result = {.l = to_global_ref(_result)},
+                     .exception = check_exception()};
+}
+
+jmethodID _m_Set__of3 = NULL;
+FFI_PLUGIN_EXPORT
+JniResult Set__of3(jobject object, jobject object1, jobject object2) {
+  load_env();
+  load_class_gr(&_c_Set, "java/util/Set");
+  if (_c_Set == NULL)
+    return (JniResult){.result = {.j = 0}, .exception = check_exception()};
+  load_static_method(_c_Set, &_m_Set__of3, "of",
+                     "(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/"
+                     "Object;)Ljava/util/Set;");
+  if (_m_Set__of3 == NULL)
+    return (JniResult){.result = {.j = 0}, .exception = check_exception()};
+  jobject _result = (*jniEnv)->CallStaticObjectMethod(
+      jniEnv, _c_Set, _m_Set__of3, object, object1, object2);
+  return (JniResult){.result = {.l = to_global_ref(_result)},
+                     .exception = check_exception()};
+}
+
+jmethodID _m_Set__of4 = NULL;
+FFI_PLUGIN_EXPORT
+JniResult Set__of4(jobject object,
+                   jobject object1,
+                   jobject object2,
+                   jobject object3) {
+  load_env();
+  load_class_gr(&_c_Set, "java/util/Set");
+  if (_c_Set == NULL)
+    return (JniResult){.result = {.j = 0}, .exception = check_exception()};
+  load_static_method(_c_Set, &_m_Set__of4, "of",
+                     "(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/"
+                     "Object;Ljava/lang/Object;)Ljava/util/Set;");
+  if (_m_Set__of4 == NULL)
+    return (JniResult){.result = {.j = 0}, .exception = check_exception()};
+  jobject _result = (*jniEnv)->CallStaticObjectMethod(
+      jniEnv, _c_Set, _m_Set__of4, object, object1, object2, object3);
+  return (JniResult){.result = {.l = to_global_ref(_result)},
+                     .exception = check_exception()};
+}
+
+jmethodID _m_Set__of5 = NULL;
+FFI_PLUGIN_EXPORT
+JniResult Set__of5(jobject object,
+                   jobject object1,
+                   jobject object2,
+                   jobject object3,
+                   jobject object4) {
+  load_env();
+  load_class_gr(&_c_Set, "java/util/Set");
+  if (_c_Set == NULL)
+    return (JniResult){.result = {.j = 0}, .exception = check_exception()};
+  load_static_method(
+      _c_Set, &_m_Set__of5, "of",
+      "(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/"
+      "Object;Ljava/lang/Object;)Ljava/util/Set;");
+  if (_m_Set__of5 == NULL)
+    return (JniResult){.result = {.j = 0}, .exception = check_exception()};
+  jobject _result = (*jniEnv)->CallStaticObjectMethod(
+      jniEnv, _c_Set, _m_Set__of5, object, object1, object2, object3, object4);
+  return (JniResult){.result = {.l = to_global_ref(_result)},
+                     .exception = check_exception()};
+}
+
+jmethodID _m_Set__of6 = NULL;
+FFI_PLUGIN_EXPORT
+JniResult Set__of6(jobject object,
+                   jobject object1,
+                   jobject object2,
+                   jobject object3,
+                   jobject object4,
+                   jobject object5) {
+  load_env();
+  load_class_gr(&_c_Set, "java/util/Set");
+  if (_c_Set == NULL)
+    return (JniResult){.result = {.j = 0}, .exception = check_exception()};
+  load_static_method(
+      _c_Set, &_m_Set__of6, "of",
+      "(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/"
+      "Object;Ljava/lang/Object;Ljava/lang/Object;)Ljava/util/Set;");
+  if (_m_Set__of6 == NULL)
+    return (JniResult){.result = {.j = 0}, .exception = check_exception()};
+  jobject _result = (*jniEnv)->CallStaticObjectMethod(
+      jniEnv, _c_Set, _m_Set__of6, object, object1, object2, object3, object4,
+      object5);
+  return (JniResult){.result = {.l = to_global_ref(_result)},
+                     .exception = check_exception()};
+}
+
+jmethodID _m_Set__of7 = NULL;
+FFI_PLUGIN_EXPORT
+JniResult Set__of7(jobject object,
+                   jobject object1,
+                   jobject object2,
+                   jobject object3,
+                   jobject object4,
+                   jobject object5,
+                   jobject object6) {
+  load_env();
+  load_class_gr(&_c_Set, "java/util/Set");
+  if (_c_Set == NULL)
+    return (JniResult){.result = {.j = 0}, .exception = check_exception()};
+  load_static_method(_c_Set, &_m_Set__of7, "of",
+                     "(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/"
+                     "Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/"
+                     "Object;Ljava/lang/Object;)Ljava/util/Set;");
+  if (_m_Set__of7 == NULL)
+    return (JniResult){.result = {.j = 0}, .exception = check_exception()};
+  jobject _result = (*jniEnv)->CallStaticObjectMethod(
+      jniEnv, _c_Set, _m_Set__of7, object, object1, object2, object3, object4,
+      object5, object6);
+  return (JniResult){.result = {.l = to_global_ref(_result)},
+                     .exception = check_exception()};
+}
+
+jmethodID _m_Set__of8 = NULL;
+FFI_PLUGIN_EXPORT
+JniResult Set__of8(jobject object,
+                   jobject object1,
+                   jobject object2,
+                   jobject object3,
+                   jobject object4,
+                   jobject object5,
+                   jobject object6,
+                   jobject object7) {
+  load_env();
+  load_class_gr(&_c_Set, "java/util/Set");
+  if (_c_Set == NULL)
+    return (JniResult){.result = {.j = 0}, .exception = check_exception()};
+  load_static_method(
+      _c_Set, &_m_Set__of8, "of",
+      "(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/"
+      "Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/"
+      "Object;)Ljava/util/Set;");
+  if (_m_Set__of8 == NULL)
+    return (JniResult){.result = {.j = 0}, .exception = check_exception()};
+  jobject _result = (*jniEnv)->CallStaticObjectMethod(
+      jniEnv, _c_Set, _m_Set__of8, object, object1, object2, object3, object4,
+      object5, object6, object7);
+  return (JniResult){.result = {.l = to_global_ref(_result)},
+                     .exception = check_exception()};
+}
+
+jmethodID _m_Set__of9 = NULL;
+FFI_PLUGIN_EXPORT
+JniResult Set__of9(jobject object,
+                   jobject object1,
+                   jobject object2,
+                   jobject object3,
+                   jobject object4,
+                   jobject object5,
+                   jobject object6,
+                   jobject object7,
+                   jobject object8) {
+  load_env();
+  load_class_gr(&_c_Set, "java/util/Set");
+  if (_c_Set == NULL)
+    return (JniResult){.result = {.j = 0}, .exception = check_exception()};
+  load_static_method(
+      _c_Set, &_m_Set__of9, "of",
+      "(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/"
+      "Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/"
+      "Object;Ljava/lang/Object;)Ljava/util/Set;");
+  if (_m_Set__of9 == NULL)
+    return (JniResult){.result = {.j = 0}, .exception = check_exception()};
+  jobject _result = (*jniEnv)->CallStaticObjectMethod(
+      jniEnv, _c_Set, _m_Set__of9, object, object1, object2, object3, object4,
+      object5, object6, object7, object8);
+  return (JniResult){.result = {.l = to_global_ref(_result)},
+                     .exception = check_exception()};
+}
+
+jmethodID _m_Set__of10 = NULL;
+FFI_PLUGIN_EXPORT
+JniResult Set__of10(jobject object,
+                    jobject object1,
+                    jobject object2,
+                    jobject object3,
+                    jobject object4,
+                    jobject object5,
+                    jobject object6,
+                    jobject object7,
+                    jobject object8,
+                    jobject object9) {
+  load_env();
+  load_class_gr(&_c_Set, "java/util/Set");
+  if (_c_Set == NULL)
+    return (JniResult){.result = {.j = 0}, .exception = check_exception()};
+  load_static_method(
+      _c_Set, &_m_Set__of10, "of",
+      "(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/"
+      "Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/"
+      "Object;Ljava/lang/Object;Ljava/lang/Object;)Ljava/util/Set;");
+  if (_m_Set__of10 == NULL)
+    return (JniResult){.result = {.j = 0}, .exception = check_exception()};
+  jobject _result = (*jniEnv)->CallStaticObjectMethod(
+      jniEnv, _c_Set, _m_Set__of10, object, object1, object2, object3, object4,
+      object5, object6, object7, object8, object9);
+  return (JniResult){.result = {.l = to_global_ref(_result)},
+                     .exception = check_exception()};
+}
+
+jmethodID _m_Set__of11 = NULL;
+FFI_PLUGIN_EXPORT
+JniResult Set__of11(jobject objects) {
+  load_env();
+  load_class_gr(&_c_Set, "java/util/Set");
+  if (_c_Set == NULL)
+    return (JniResult){.result = {.j = 0}, .exception = check_exception()};
+  load_static_method(_c_Set, &_m_Set__of11, "of",
+                     "([Ljava/lang/Object;)Ljava/util/Set;");
+  if (_m_Set__of11 == NULL)
+    return (JniResult){.result = {.j = 0}, .exception = check_exception()};
+  jobject _result =
+      (*jniEnv)->CallStaticObjectMethod(jniEnv, _c_Set, _m_Set__of11, objects);
+  return (JniResult){.result = {.l = to_global_ref(_result)},
+                     .exception = check_exception()};
+}
+
+jmethodID _m_Set__copyOf = NULL;
+FFI_PLUGIN_EXPORT
+JniResult Set__copyOf(jobject collection) {
+  load_env();
+  load_class_gr(&_c_Set, "java/util/Set");
+  if (_c_Set == NULL)
+    return (JniResult){.result = {.j = 0}, .exception = check_exception()};
+  load_static_method(_c_Set, &_m_Set__copyOf, "copyOf",
+                     "(Ljava/util/Collection;)Ljava/util/Set;");
+  if (_m_Set__copyOf == NULL)
+    return (JniResult){.result = {.j = 0}, .exception = check_exception()};
+  jobject _result = (*jniEnv)->CallStaticObjectMethod(
+      jniEnv, _c_Set, _m_Set__copyOf, collection);
+  return (JniResult){.result = {.l = to_global_ref(_result)},
+                     .exception = check_exception()};
+}
+
 // android.content.Context
 jclass _c_Context = NULL;
 

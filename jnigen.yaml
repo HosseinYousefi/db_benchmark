@@ -13,6 +13,8 @@ output:
     structure: single_file
 
 classes:
+  - 'java.util.Map'
+  - 'java.util.Set'
   - 'android.content.Context'
   - 'android.content.SharedPreferences'
   - 'android.content.SharedPreferences$Editor'
